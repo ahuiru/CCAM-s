@@ -1,5 +1,16 @@
 <h3>home</h3>
 
- <div>
+<div>
   <%= link_to 'logout', destroy_user_session_path, method: :delete %>
- </div>
+</div>
+
+<div>
+  <%= link_to '写真投稿', [:new, :photo]%>
+</div>
+
+<% current_user.photos.each do |photo| %>
+  <div>
+    <p><%= photo.caption  %></p>
+    <%= image_tag photo.image, size:"200x200" %>
+  </div>
+<% end %>
