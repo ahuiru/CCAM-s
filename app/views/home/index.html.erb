@@ -12,5 +12,23 @@
   <div>
     <%= link_to user.email, [user] %>
   </div>
+<% end %>
 
+<hr color="#6c757d" size="4px">
+
+<% @feeds.each do |photo| %>
+  <div>
+    <div>
+      <%= link_to photo.user.email, [photo.user] %>
+    </div>
+  </div>
+
+  <div>
+    <%= image_tag photo.image, size:"300x200" %>
+  </div>
+
+  <div>
+  <%= photo.caption %>
+  </div>
+  <hr>
 <% end %>
