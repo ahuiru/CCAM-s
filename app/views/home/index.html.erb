@@ -8,9 +8,9 @@
   <%= link_to '写真投稿', [:new, :photo]%>
 </div>
 
-<% current_user.photos.each do |photo| %>
+<% User.all.each do |user| %>
   <div>
-    <p><%= photo.caption  %></p>
-    <%= image_tag photo.image, size:"200x200" %>
+    <%= link_to user.email, [user] %>
   </div>
+
 <% end %>
