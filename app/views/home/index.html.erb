@@ -24,7 +24,9 @@
   </div>
 
   <div>
-    <%= image_tag photo.image, size:"300x200" %>
+    <%= link_to [photo] do %>
+      <%= image_tag photo.image, size:"300x200" %>
+    <% end %>
   </div>
 
   <div>
