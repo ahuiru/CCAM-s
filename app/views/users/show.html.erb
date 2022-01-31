@@ -9,3 +9,7 @@
 <% end %>
 
 <%= render 'relationships/follow_button', user: @user %>
+
+<div>
+  <%= link_to 'likes', [@user, :likes] %>
+</div>

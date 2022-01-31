@@ -6,8 +6,11 @@ Rails.application.routes.draw do
   end
 
   resources :photos do
+    resource :like
     resources :comments, :except => :show
   end
-  resources :users
+  resources :users do
+    resources :likes
+  end
   resources :relationships, only: [:create, :destroy]
 end

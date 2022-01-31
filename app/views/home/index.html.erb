@@ -1,5 +1,7 @@
 <h3>home</h3>
 
+<h4><%= current_user.email %></h4>
+
 <div>
   <%= link_to 'logout', destroy_user_session_path, method: :delete %>
 </div>

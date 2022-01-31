@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_30_092825) do
+ActiveRecord::Schema.define(version: 2022_01_31_005352) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -41,6 +41,15 @@ ActiveRecord::Schema.define(version: 2022_01_30_092825) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["photo_id"], name: "index_comments_on_photo_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "photo_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["photo_id"], name: "index_likes_on_photo_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "photos", force: :cascade do |t|
@@ -76,6 +85,8 @@ ActiveRecord::Schema.define(version: 2022_01_30_092825) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "photos"
   add_foreign_key "comments", "users"
+  add_foreign_key "likes", "photos"
+  add_foreign_key "likes", "users"
   add_foreign_key "photos", "users"
   add_foreign_key "relationships", "users"
   add_foreign_key "relationships", "users", column: "follow_id"

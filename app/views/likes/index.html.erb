@@ -1,0 +1,20 @@
+<hr color="#6c757d" size="4px">
+
+<% @photos.each do |photo| %>
+  <div>
+    <div>
+      <%= link_to photo.user.email, [photo.user] %>
+    </div>
+  </div>
+
+  <div>
+    <%= link_to [photo] do %>
+      <%= image_tag photo.image, size:"300x200" %>
+    <% end %>
+  </div>
+
+  <div>
+  <%= photo.caption %>
+  </div>
+  <hr>
+<% end %>
