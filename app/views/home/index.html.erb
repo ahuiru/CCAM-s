@@ -1,38 +1,37 @@
-<h3>home</h3>
+<div class="tabs">
+  <ul>
+    <li>
+      <%= link_to '写真投稿', [:new, :photo]%>
+    </li>
+    <li>
+      <%= link_to 'logout', destroy_user_session_path, method: :delete %>
+    </li>
+  </ul>
+</div>
+
 
 <h4><%= current_user.email %></h4>
 
-<div>
-  <%= link_to 'logout', destroy_user_session_path, method: :delete %>
-</div>
 
-<div>
-  <%= link_to '写真投稿', [:new, :photo]%>
-</div>
-
-<% User.all.each do |user| %>
-  <div>
-    <%= link_to user.email, [user] %>
-  </div>
-<% end %>
-
-<hr color="#6c757d" size="4px">
+<%# <hr color="#6c757d" size="4px"> %>
 
 <% @feeds.each do |photo| %>
-  <div>
-    <div>
-      <%= link_to photo.user.email, [photo.user] %>
+  <div class="card mb-5">
+    <div class="card-image">
+      <figure class="image">
+        <%= link_to [photo] do %>
+          <%= image_tag photo.image %>
+        <% end %>
+      </figure>
+    </div>
+    <div class="card-content">
+      <div>
+        <%= link_to photo.user.email, [photo.user] %>
+      </div>
+      <div>
+        <%= photo.caption %>
+      </div>
     </div>
   </div>
 
-  <div>
-    <%= link_to [photo] do %>
-      <%= image_tag photo.image, size:"300x200" %>
-    <% end %>
-  </div>
-
-  <div>
-  <%= photo.caption %>
-  </div>
-  <hr>
 <% end %>

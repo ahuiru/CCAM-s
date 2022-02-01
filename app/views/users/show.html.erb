@@ -1,15 +1,33 @@
-<h3><%= @user.email %></h3>
+<h3 class="title"><%= @user.email %></h3>
+<%= render 'relationships/follow_button', user: @user, class: 'button is-primary' %>
+
+
+<div class="tabs">
+  <ul>
+    <li>
+      <%= link_to 'likes', [@user, :likes] %>
+    </li>
+  </ul>
+</div>
 
 
 <% @user.photos.each do |photo| %>
-  <div>
-    <p><%= photo.caption  %></p>
-    <%= image_tag photo.image, size:"200x200" %>
+  <div class="card mb-5">
+    <div class="card-image">
+      <figure class="image">
+        <%= link_to [photo] do %>
+          <%= image_tag photo.image %>
+        <% end %>
+      </figure>
+    </div>
+    <div class="card-content">
+      <div>
+        <%= link_to photo.user.email, [photo.user] %>
+      </div>
+      <div>
+        <%= photo.caption %>
+      </div>
+    </div>
   </div>
+
 <% end %>
-
-<%= render 'relationships/follow_button', user: @user %>
-
-<div>
-  <%= link_to 'likes', [@user, :likes] %>
-</div>
