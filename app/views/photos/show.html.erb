@@ -20,6 +20,13 @@
           <%= link_to 'like', [@photo, :like], method: :post %>
         <% end %>
       </div>
+      <div>
+
+        <% if @photo.user == current_user %>
+          <%= link_to 'delete', [@photo], method: :delete %>
+        <% end %>
+
+      </div>
     </div>
   </div>
 
