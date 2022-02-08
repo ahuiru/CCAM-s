@@ -50,6 +50,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.permit(:account_update, keys: [:name, :email])
   end
 
+  #userのshowページの編集の際、パスワードなしでも編集できるようにする
+  def update_resource(resource, params)
+    resource.update_without_password(params)
+  end
+
+  def after_update_path_for(resource)
+    # 自分で設定した「マイページ」へのパス
+    user_path(current_user)
+  end
+
   # The path used after sign up.
   # def after_sign_up_path_for(resource)
   #   super(resource)

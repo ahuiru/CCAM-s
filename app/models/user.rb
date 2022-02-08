@@ -4,17 +4,21 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :photos
+  has_many :photos, dependent: :destroy
 
-  has_many :relationships
+  has_many :relationships, dependent: :destroy
   has_many :followings, through: :relationships, source: :follow
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
-  has_many :followers, through: :reverse_of_relationships, source: :user
-  has_many :comments
-  has_many :likes
+  has_many :followers, through: :reverse_of_relationships, source: :user, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy
+
+  validates :profile, length: { maximum: 200 }
+  #userのshowページの編集の際、パスワードなしでも編集できるようにするために
+  attr_accessor :current_password
 
   def follow(other_user)
     unless self == other_user
