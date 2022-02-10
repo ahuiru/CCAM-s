@@ -7,12 +7,23 @@
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
   </head>
 
   <body>
     <nav class="navbar">
       <div class="navbar-brand">
         <%= link_to "InstagramRails", [:root], class: 'navbar-item' %>
+        <%= link_to new_photo_path, class: "btn btn-primary navbar-item", method: :get do %>
+          <i class="fa fa-plus-square" aria-hidden="true"></i>
+        <% end %>
+        <%= link_to new_photo_path, class: "btn btn-primary navbar-item", method: :get do %>
+          <i class="fa fa-commenting" aria-hidden="true"></i>
+        <% end %>
+        <%= link_to destroy_user_session_path, method: :delete do %>
+          <i class="fa fa-sign-out" aria-hidden="true"></i>
+        <% end %>
       </div>
     </nav>
     <section class="section">

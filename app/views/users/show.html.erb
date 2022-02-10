@@ -1,7 +1,9 @@
 <div class="title is-3"><%= @user.name %></div>
 <h5 class="is-size-5 has-text-weight-medium"><%= @user.email %></h5>
 <p class="mb-3"><%= @user.profile %></p>
-<%= render 'relationships/follow_button', user: @user, class: 'button is-primary' %>
+
+
+<%= render 'relationships/follow_button', user: @user %>
 
 
 <div class="tabs">
@@ -14,24 +16,23 @@
         <%= link_to 'edit', edit_user_registration_path %>
       <% end %>
     </li>
+    <li>
+      <% if @user.id == current_user.id %>
+      <% else %>
+        <% if @isRoom == true %>
+          <p><a href="/rooms/<%= @roomId %>">chat</a>
+        <% else %>
+          <%= form_for @room do |f| %>
+            <%= fields_for @entry do |e| %>
+              <%= e.hidden_field :user_id, :value=> @user.id %>
+            <% end %>
+            <%= f.submit "チャットを始める" %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </li>
   </ul>
 </div>
-
-
-<% if @user.id == current_user.id %>
-
-<% else %>
-  <% if @isRoom == true %>
-    <p><a href="/rooms/<%= @roomId %>">チャットへ</a>
-  <% else %>
-    <%= form_for @room do |f| %>
-      <%= fields_for @entry do |e| %>
-        <%= e.hidden_field :user_id, :value=> @user.id %>
-      <% end %>
-      <%= f.submit "チャットを始める" %>
-    <% end %>
-  <% end %>
-<% end %>
 
 
 <% @user.photos.each do |photo| %>
