@@ -1,57 +1,71 @@
-<div class="title is-3"><%= @user.name %></div>
-<h5 class="is-size-5 has-text-weight-medium"><%= @user.email %></h5>
-<p class="mb-3"><%= @user.profile %></p>
+<div class="columns is-centered">
+  <div class="column is-7">
+    <table>
+      <tr>
+        <td class="image">
+          <%= image_tag @user.image, class: 'image is-128x128 is-rounded' if @user.image.present? %>
+        </td>
+        <td class="pl-5 pt-1">
+          <div class="title is-3"><%= @user.name %></div>
+          <h5 class="is-size-5 has-text-weight-medium"><%= @user.email %></h5>
+          <p class="mb-3"><%= @user.profile %></p>
+        </td>
+      </tr>
+    </table>
 
 
-<%= render 'relationships/follow_button', user: @user %>
+
+    <%= render 'relationships/follow_button', user: @user %>
 
 
-<div class="tabs">
-  <ul>
-    <li>
-      <%= link_to 'likes', [@user, :likes] %>
-    </li>
-    <li>
-      <% if @user.id == current_user.id %>
-        <%= link_to 'edit', edit_user_registration_path %>
-      <% end %>
-    </li>
-    <li>
-      <% if @user.id == current_user.id %>
-      <% else %>
-        <% if @isRoom == true %>
-          <p><a href="/rooms/<%= @roomId %>">chat</a>
-        <% else %>
-          <%= form_for @room do |f| %>
-            <%= fields_for @entry do |e| %>
-              <%= e.hidden_field :user_id, :value=> @user.id %>
+    <div class="tabs">
+      <ul>
+        <% if @user.id == current_user.id %>
+          <li>
+            <%= link_to 'likes', [@user, :likes] %>
+          </li>
+          <li>
+            <%= link_to 'edit', edit_user_registration_path %>
+          </li>
+        <% end %>
+        <li>
+          <% if @user.id == current_user.id %>
+          <% else %>
+            <% if @isRoom == true %>
+              <p><a href="/rooms/<%= @roomId %>">chat</a>
+            <% else %>
+              <%= form_for @room do |f| %>
+                <%= fields_for @entry do |e| %>
+                  <%= e.hidden_field :user_id, :value=> @user.id %>
+                <% end %>
+                <p><%= f.submit "チャットを始める" %></p>
+              <% end %>
             <% end %>
-            <%= f.submit "チャットを始める" %>
           <% end %>
-        <% end %>
-      <% end %>
-    </li>
-  </ul>
-</div>
+        </li>
+      </ul>
+    </div>
 
 
-<% @user.photos.each do |photo| %>
-  <div class="card mb-5">
-    <div class="card-image">
-      <figure class="image">
-        <%= link_to [photo] do %>
-          <%= image_tag photo.image %>
-        <% end %>
-      </figure>
-    </div>
-    <div class="card-content">
-      <div>
-        <%= link_to photo.user.email, [photo.user] %>
+    <% @user.photos.each do |photo| %>
+      <div class="card mb-5">
+        <div class="card-image">
+          <figure class="image">
+            <%= link_to [photo] do %>
+              <%= image_tag photo.image %>
+            <% end %>
+          </figure>
+        </div>
+        <div class="card-content">
+          <div>
+            <%= link_to photo.user.email, [photo.user] %>
+          </div>
+          <div>
+            <%= photo.caption %>
+          </div>
+        </div>
       </div>
-      <div>
-        <%= photo.caption %>
-      </div>
-    </div>
+
+    <% end %>
   </div>
-
-<% end %>
+</div>

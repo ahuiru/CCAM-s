@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, :only => [:show]
-  
+
+  def index
+    @users = User.all
+  end
+
   def show
     @user = User.find(params[:id])
     @currentUserEntry = Entry.where(user_id: current_user.id)
@@ -20,6 +24,14 @@ class UsersController < ApplicationController
         @room = Room.new
         @entry = Entry.new
       end
+    end
+  end
+
+  def search
+    if params[:name].present?
+      @users = User.where('name LIKE ?', "%#{params[:name]}%")
+    else
+      @users = User.none
     end
   end
 

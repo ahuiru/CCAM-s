@@ -1,26 +1,38 @@
-<h1>DM</h1>
 
-<h4>参加者</h4>
-<% @entries.each do |e| %>
-  <h5><strong><a href="/users/<%= e.user.id %>"><%= e.user.email%>さん</a></strong></h5>
-<% end %>
+<div class="dm">
+  <div class="dm-header">
+    <%= link_to rooms_path, class: 'button is-ghost rooms-back' do %>
+      <i class="fa fa-chevron-left" aria-hidden="true"></i>
+    <% end %>
 
-<hr>
-<% if @messages.present? %>
-  <% @messages.each do |m| %>
-    <strong><%= m.content %></strong>
-    <small>by <strong><a href="/users/<%= m.user_id %>"><%= m.user.email %>さん</a></strong></small>
-    <hr>
-  <% end %>
-<% else %>
-  <h3 class="text-center">メッセージはまだありません</h3>
-<% end %>
+    <% @entries.each do |e| %>
+      <% if e.user.id != current_user.id %>
+        <strong class="is-size-4 ml-3"><a href="/users/<%= e.user.id %>"><%= e.user.name%></a></strong>
+      <% end %>
+    <% end %>
+  </div>
 
-<%= form_for @message do |f| %>
-  <%= f.text_field :content, :placeholder => "メッセージを入力して下さい" , :size => 70 %>
-  <%= f.hidden_field :room_id, :value => @room.id %>
-  <br>
-  <%= f.submit "投稿する" %>
-<% end %>
+  <hr>
 
-<%= link_to "ユーザー一覧に戻る", root_path %>
+  <div class="dm-content">
+    <% if @messages.present? %>
+      <% @messages.each do |m| %>
+      <div class="columns">
+        <figure class="image column"><%= image_tag m.user.image, class: 'image is-48x48 is-rounded' %></figure>
+        <strong class="column"><%= m.content %></strong>
+        <hr>
+      </div>
+      <% end %>
+    <% else %>
+      <h3 class="text-center">メッセージはまだありません</h3>
+    <% end %>
+    <div class="dm-text mb-5">
+      <%= form_for @message do |f| %>
+        <%= f.text_field :content, :placeholder => "メッセージを入力して下さい" , :style=>"width: 60%", class: 'input mt-5' %>
+        <%= f.hidden_field :room_id, :value => @room.id %>
+        <br>
+        <%= f.submit "送信", class: 'button is-info ml-2' %>
+    <% end %>
+    </div>
+  </div>
+</div>

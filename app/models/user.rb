@@ -15,6 +15,10 @@ class User < ApplicationRecord
 
   has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy
+  has_many :rooms, through: :entries
+
+  # mount_uploader :image, ImageUploader
+  has_one_attached :image
 
   validates :profile, length: { maximum: 200 }
   #userのshowページの編集の際、パスワードなしでも編集できるようにするために

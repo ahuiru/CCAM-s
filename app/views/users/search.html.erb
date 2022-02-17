@@ -1,0 +1,26 @@
+
+<div class="columns is-vcentered is-centered search pt-5 pb-5">
+  <div class="column is-4 mr-5">
+    <h1>User search</h1>
+    <%= form_with url: search_users_path, method: :get, local: true do |f| %>
+      <div class="field">
+        <%= f.text_field :name, class: 'input' %>
+      </div>
+        <%= f.submit :search, class:'button is-primary' %>
+    <% end %>
+  </div>
+  <div>
+    <% @users.each do |user| %>
+      <tr>
+        <td class="pt-2">
+          <a href="/users/<%= user.id %>" class="columns image is-centered">
+            <%= image_tag user.image, class:"image is-64x64 is-rounded column is-4" %>
+            <div class="column pt-4">
+              <%= user.name %>
+            </div>
+          </a>
+        </td>
+      </tr>
+    <% end %>
+  </div>
+</div>

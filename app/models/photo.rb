@@ -7,4 +7,6 @@ class Photo < ApplicationRecord
   has_many :likes, dependent: :destroy
 
   validates :image, presence: true
+
+  
 end

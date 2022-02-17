@@ -18,6 +18,106 @@
  @import "@fortawesome/fontawesome-free/scss/fontawesome";
 
  .btn {
-   background-color: #007bff;
-   color: white;
+  //  background-color: #007bff;
+   color: black;
  }
+
+ hr {
+  background-color: #DBDBDB;
+  margin: 0;
+  height: 1px;
+}
+
+
+ nav .logo {
+  font-family: 'Homemade Apple', cursive;
+  margin-left: 150px;
+ }
+
+ .nav-icon-image {
+  width: 100%;
+  height: 50px;
+  //サイズ指定
+  // border-radius: 100px;
+  //画像を丸くする
+  object-fit: cover;
+  //タテヨコ比を変えないままトリミング
+}
+
+.navbar-end {
+  padding-right: 200px;
+}
+
+.image .navbar-item {
+  padding: 0;
+  margin: 9px 0 0 4px;
+}
+
+//userのeditページ
+.edit-page {
+  padding: 30px 100px;
+  border: 1px solid #DBDBDB;
+}
+
+.search {
+  background-color: white !important;
+  border: 1px solid #DBDBDB;
+}
+
+.search tr {
+  height:40px;
+}
+
+.search .image.is-64x64 {
+  width: 64px;
+}
+
+.dm-list {
+  background-color: white !important;
+  border: 1px solid #DBDBDB;
+  border-bottom: 0;
+}
+
+.dm-list .columns {
+  margin-top: 0;
+  padding: 10px 0;
+}
+
+.columns:not(:last-child) {
+  margin-bottom: 0;
+}
+
+.dm {
+  background-color: white !important;
+  border: 1px solid #DBDBDB;
+}
+
+
+.dm-text .input {
+  float: left;
+}
+
+.dm-content {
+  margin: 30px 0 0 30px;
+}
+
+.dm-header {
+  margin: 10px 0;
+}
+
+.comment .image {
+  float: left;
+}
+
+.comment .image img.is-rounded {
+  border-radius: 50px !important;
+}
+
+
+.like-button {
+  float: left;
+}
+
+.photo-deltete-button {
+  
+}

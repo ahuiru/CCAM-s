@@ -6,14 +6,12 @@ class LikesController < ApplicationController
   end
 
   def create
+    @photo = Photo.find(params[:photo_id])
     current_user.likes.create(photo_id: params[:photo_id])
-
-    redirect_to [:photo, { id: params[:photo_id]}]
   end
 
   def destroy
+    @photo = Photo.find(params[:photo_id])
     current_user.likes.find_by(photo_id: params[:photo_id]).destroy
-
-    redirect_to [:photo, { id: params[:photo_id]}]
   end
 end

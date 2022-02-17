@@ -1,23 +1,26 @@
 
 
+<div class="columns  is-centered">
+<div class="column is-6">
 
-<% @photos.each do |photo| %>
-  <div class="card mb-5">
-    <div class="card-image">
-      <figure class="image">
-        <%= link_to [photo] do %>
-          <%= image_tag photo.image %>
-        <% end %>
-      </figure>
-    </div>
-    <div class="card-content">
-      <div>
-        <%= link_to photo.user.email, [photo.user] %>
+  <% @photos.each do |photo| %>
+    <div class="card mb-5">
+      <div class="card-image">
+        <figure class="image">
+          <%= link_to [photo] do %>
+            <%= image_tag photo.image %>
+          <% end %>
+        </figure>
       </div>
-      <div>
-        <%= photo.caption %>
+      <div class="card-content">
+        <div>
+          <%= link_to photo.user.email, [photo.user] %>
+        </div>
+        <div>
+          <%= photo.caption %>
+        </div>
       </div>
     </div>
-  </div>
-<% end %>
-
+  <% end %>
+</div>
+</div>

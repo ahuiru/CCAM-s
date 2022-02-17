@@ -3,4 +3,5 @@
 //= require popper
 //= require bootstrap
 //= require_tree .
-//= require jquery_ujs  // <- これを足す
+//= require jquery
+//= require jquery_ujs

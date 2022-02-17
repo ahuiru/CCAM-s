@@ -1,38 +1,47 @@
-<div><%= link_to current_user.email, [current_user], class: 'navbar-item is-size-5' %></div>
-<div class="tabs">
-  <ul>
-    <li>
-      <%= link_to '写真投稿', [:new, :photo]%>
-    </li>
-    <li>
-      <%= link_to 'logout', destroy_user_session_path, method: :delete %>
-    </li>
-  </ul>
-</div>
 
-
-
-
-
-<%# <hr color="#6c757d" size="4px"> %>
-
-<% @feeds.each do |photo| %>
-  <div class="card mb-5">
-    <div class="card-image">
-      <figure class="image">
-        <%= link_to [photo] do %>
-          <%= image_tag photo.image %>
-        <% end %>
-      </figure>
-    </div>
-    <div class="card-content">
-      <div>
-        <%= link_to photo.user.email, [photo.user] %>
+<div class="columns is-centered">
+  <div class="column is-7 has-background-white-ter is-paddingless">
+    <% @feeds.each do |photo| %>
+      <div class="card mb-5">
+        <div class="card-image">
+          <figure class="image">
+            <%= link_to [photo] do %>
+              <%= image_tag photo.image %>
+            <% end %>
+          </figure>
+        </div>
+        <div class="card-content">
+          <div>
+            <%= link_to photo.user.email, [photo.user] %>
+          </div>
+          <div>
+            <%= photo.caption %>
+          </div>
+        </div>
       </div>
-      <div>
-        <%= photo.caption %>
-      </div>
-    </div>
+    <% end %>
   </div>
 
-<% end %>
+  <div class="column is-4 pl-6">
+    <table>
+      <tr>
+        <td class="image">
+            <%= link_to [current_user] do %>
+              <%= image_tag current_user.image, class: 'icon_image image is-128x128 is-rounded' if current_user.image.present? %>
+            <% end %>
+        </td>
+        <td>
+          <%= link_to current_user.email, [current_user], class: 'navbar-item is-size-5' %>
+          <div class="pl-4">
+            <%= current_user.name %>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <div class="is-pulled-right">
+      <%= link_to search_users_path, class: "btn", method: :get do %>
+        <i class="fa fa-search" aria-hidden="true"></i>
+      <% end %>
+    </div>
+  </div>
+</div>

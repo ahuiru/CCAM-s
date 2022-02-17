@@ -26,6 +26,8 @@ class PhotosController < ApplicationController
         redirect_to [current_user]
     end
 
+
+
     private
 
      def photo_params

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   end
   resources :users do
     resources :likes
+    get :search, on: :collection
   end
   resources :relationships, only: [:create, :destroy]
   resources :messages, :only => [:create]

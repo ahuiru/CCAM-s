@@ -7,28 +7,38 @@
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
+    <%= stylesheet_link_tag "application", :media => "all" %>
 
   </head>
 
-  <body>
+  <body class="has-background-white-ter">
     <nav class="navbar">
-      <div class="navbar-brand">
-        <%= link_to "InstagramRails", [:root], class: 'navbar-item' %>
-        <%= link_to new_photo_path, class: "btn btn-primary navbar-item", method: :get do %>
+      <%= link_to "InstagramRails", [:root], class: 'navbar-item logo' %>
+      <div class="navbar-brand navbar-end">
+      <% if logged_in? %>
+        <%= link_to new_photo_path, class: "btn navbar-item", method: :get do %>
           <i class="fa fa-plus-square" aria-hidden="true"></i>
         <% end %>
-        <%= link_to new_photo_path, class: "btn btn-primary navbar-item", method: :get do %>
+        <%= link_to rooms_path, class: "btn navbar-item", method: :get do %>
           <i class="fa fa-commenting" aria-hidden="true"></i>
         <% end %>
-        <%= link_to destroy_user_session_path, method: :delete do %>
+        <%= link_to destroy_user_session_path, class: "btn navbar-item", method: :delete do %>
           <i class="fa fa-sign-out" aria-hidden="true"></i>
         <% end %>
+        <div class="image">
+          <%= link_to current_user, method: :get do %>
+            <%= image_tag current_user.image, class: 'btn image is-32x32 is-rounded navbar-item' %>
+          <% end %>
+        </div>
+      <% end %>
+
+
       </div>
     </nav>
+
     <section class="section">
       <div class="columns is-centered">
-        <div class="column is-5">
+        <div class="column is-10">
           <%= yield %>
         </div>
       </div>
