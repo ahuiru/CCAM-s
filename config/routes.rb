@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   resources :users do
     resources :likes
     get :search, on: :collection
+    resources :followers
+    resources :followings
   end
   resources :relationships, only: [:create, :destroy]
   resources :messages, :only => [:create]

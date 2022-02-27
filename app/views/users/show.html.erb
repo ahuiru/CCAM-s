@@ -7,6 +7,21 @@
         </td>
         <td class="pl-5 pt-1">
           <div class="title is-3"><%= @user.name %></div>
+          <div class="feature-box pb-4">
+            <div class="feature">
+              <p>投稿<%= @user.photos.count %>件</p>
+            </div>
+            <div class="feature">
+              <%= link_to user_followers_path(@user) do %>
+                <p class="has-text-black">フォロワー<%= @user.followers.count %>人</p>
+              <% end %>
+            </div>
+            <div class="feature">
+              <%= link_to user_followings_path(@user) do %>
+                <p class="has-text-black">フォロー中<%= @user.followings.count %>人</p>
+              <% end %>
+            </div>
+          </div>
           <h5 class="is-size-5 has-text-weight-medium"><%= @user.email %></h5>
           <p class="mb-3"><%= @user.profile %></p>
         </td>
@@ -16,6 +31,7 @@
 
 
     <%= render 'relationships/follow_button', user: @user %>
+
 
 
     <div class="tabs">
@@ -32,13 +48,13 @@
           <% if @user.id == current_user.id %>
           <% else %>
             <% if @isRoom == true %>
-              <p><a href="/rooms/<%= @roomId %>">chat</a>
+              <a href="/rooms/<%= @roomId %>">chat</a>
             <% else %>
               <%= form_for @room do |f| %>
                 <%= fields_for @entry do |e| %>
                   <%= e.hidden_field :user_id, :value=> @user.id %>
                 <% end %>
-                <p><%= f.submit "チャットを始める" %></p>
+                <%= f.submit "chat", class:"chat-button" %>
               <% end %>
             <% end %>
           <% end %>
@@ -48,21 +64,13 @@
 
 
     <% @user.photos.each do |photo| %>
-      <div class="card mb-5">
+      <div class="card mb-5 column is-4 is-gapless user-card">
         <div class="card-image">
           <figure class="image">
             <%= link_to [photo] do %>
               <%= image_tag photo.image %>
             <% end %>
           </figure>
-        </div>
-        <div class="card-content">
-          <div>
-            <%= link_to photo.user.email, [photo.user] %>
-          </div>
-          <div>
-            <%= photo.caption %>
-          </div>
         </div>
       </div>
 

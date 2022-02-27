@@ -1,0 +1,10 @@
+<% @followings.each do |following| %>
+  <div class="columns is-vcentered">
+    <div class="column is-1 image following-image is-inline-block">
+      <%= image_tag following.image, class: 'btn image is-64x64 is-rounded' %>
+    </div>
+    <div class="following-name column is-1">
+      <%= link_to following.name, user_path(following) %>
+    </div>
+  </div>
+<% end %>

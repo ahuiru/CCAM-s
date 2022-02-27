@@ -12,3 +12,23 @@
   object-fit: cover;
   //タテヨコ比を変えないままトリミング
 }
+
+.user-card {
+  float: left;
+  padding: 0;
+}
+
+.chat-button {
+  border: none;  /* 枠線を消す */
+  outline: none; /* クリックしたときに表示される枠線を消す */
+  background: transparent; /* 背景の灰色を消す */
+}
+
+.feature {
+  float: left;
+  margin-right: 10px;
+}
+
+.feature-box {
+  overflow: hidden;
+}
