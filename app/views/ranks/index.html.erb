@@ -1,0 +1,28 @@
+
+
+  <div class="columns is-centered">
+    <div class="column is-7 has-background-white-ter is-paddingless">
+      <% @photo.each.with_index(1) do |photo| %>
+        <div class="card mb-5">
+          <div class="card-image">
+            <figure class="image">
+              <%= link_to [photo] do %>
+                <%= image_tag photo.image %>
+              <% end %>
+            </figure>
+          </div>
+          <div class="card-content">
+            <div>
+              <%= link_to photo.user.email, [photo.user] %>
+            </div>
+            <div>
+              <%= photo.caption %>
+            </div>
+            <div>
+              <p>いいねは<%= photo.likes.count %>個です</p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>

@@ -30,6 +30,9 @@
         <%= link_to destroy_user_session_path, class: "btn navbar-item", method: :delete do %>
           <i class="fa fa-sign-out" aria-hidden="true"></i>
         <% end %>
+        <%= link_to ranks_path, class:'btn navbar-item' do %>
+          <i class="fas fa-crown"></i>
+        <% end %>
         <div class="image">
           <%= link_to current_user, method: :get do %>
             <%= image_tag current_user.image, class: 'btn image is-32x32 is-rounded navbar-item' %>
