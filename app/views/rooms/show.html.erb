@@ -17,11 +17,21 @@
   <div class="dm-content">
     <% if @messages.present? %>
       <% @messages.each do |m| %>
-      <div class="columns">
-        <figure class="image column"><%= image_tag m.user.image, class: 'image is-48x48 is-rounded' %></figure>
-        <strong class="column"><%= m.content %></strong>
-        <hr>
-      </div>
+
+      <% if m.user != current_user %>
+        <div class="columns">
+          <figure class="image column is-1"><%= image_tag m.user.image, class: 'image is-48x48 is-rounded chat-image' %></figure>
+          <div class="column is-3 balloon1-left"><strong class="column is-11 has-text-centered"><%= m.content %></strong></div>
+          <hr>
+        </div>
+      <% else %>
+        <div class="columns level-right">
+          <div class="column is-3 balloon1-right"><strong class="column is-11 has-text-centered"><%= m.content %></strong></div>
+          <figure class="image column is-1"><%= image_tag m.user.image, class: 'image is-48x48 is-rounded chat-image' %></figure>
+          <hr>
+        </div>
+      <% end %>
+
       <% end %>
     <% else %>
       <h3 class="text-center">メッセージはまだありません</h3>

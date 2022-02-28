@@ -1,3 +1,75 @@
 // Place all the styles related to the rooms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.dm-list {
+  background-color: white !important;
+  border: 1px solid #DBDBDB;
+  border-bottom: 0;
+}
+
+.dm-list .columns {
+  margin-top: 0;
+  padding: 10px 0;
+}
+
+
+@media screen and (min-width: 769px) {
+
+}
+
+@media screen and (max-width: 768px) {
+
+}
+
+.chat-image {
+  margin: 0;
+}
+
+
+.balloon1-left {
+  position: relative;
+  display: inline-block;
+  margin: 1.5em 0 1.5em 15px;
+  padding: 7px 10px;
+  min-width: 120px;
+  max-width: 100%;
+  color: #555;
+  font-size: 16px;
+  background: #e0edff;
+  border-radius: 10px;
+}
+
+.balloon1-left:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -30px;
+  margin-top: -15px;
+  border: 15px solid transparent;
+  border-right: 15px solid #e0edff;
+}
+
+.balloon1-left p {
+  margin: 0;
+  padding: 0;
+}
+
+.balloon1-right {
+  position: relative;
+  display: inline-block;
+  margin: 1.5em 15px 1.5em 0;
+  padding: 7px 10px;
+  min-width: 120px;
+  max-width: 100%;
+  color: #555;
+  font-size: 16px;
+  background: #e0edff;
+  border-radius: 10px;
+}
+
+.balloon1-right p {
+  margin: 0;
+  padding: 0;
+}

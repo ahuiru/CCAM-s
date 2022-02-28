@@ -5,6 +5,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag "application", :media => "all" %>
@@ -16,6 +18,9 @@
       <%= link_to "InstagramRails", [:root], class: 'navbar-item logo' %>
       <div class="navbar-brand navbar-end">
       <% if logged_in? %>
+        <%= link_to search_users_path, class: "btn navbar-item", method: :get do %>
+          <i class="fa fa-search" aria-hidden="true"></i>
+        <% end %>
         <%= link_to new_photo_path, class: "btn navbar-item", method: :get do %>
           <i class="fa fa-plus-square" aria-hidden="true"></i>
         <% end %>
@@ -36,12 +41,12 @@
       </div>
     </nav>
 
-    <section class="section">
-      <div class="columns is-centered">
-        <div class="column is-10">
+    <div class="container pt-6">
+      <div class="columns is-centered is-mobile is-tablet is-desktop">
+        <div class="column is-10-desktop is-11-tablet is-12-mobile">
           <%= yield %>
         </div>
       </div>
-    </section>
+    </div>
   </body>
 </html>

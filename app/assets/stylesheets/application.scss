@@ -53,34 +53,21 @@
   margin: 9px 0 0 4px;
 }
 
+@media screen and (min-width: 769px) {
+
+}
+
+@media screen and (max-width: 768px) {
+  .none {
+    display: none;
+}
+
+}
+
 //userのeditページ
 .edit-page {
   padding: 30px 100px;
   border: 1px solid #DBDBDB;
-}
-
-.search {
-  background-color: white !important;
-  border: 1px solid #DBDBDB;
-}
-
-.search tr {
-  height:40px;
-}
-
-.search .image.is-64x64 {
-  width: 64px;
-}
-
-.dm-list {
-  background-color: white !important;
-  border: 1px solid #DBDBDB;
-  border-bottom: 0;
-}
-
-.dm-list .columns {
-  margin-top: 0;
-  padding: 10px 0;
 }
 
 .columns:not(:last-child) {
@@ -116,8 +103,4 @@
 
 .like-button {
   float: left;
-}
-
-.photo-deltete-button {
-  
 }

@@ -32,3 +32,23 @@
 .feature-box {
   overflow: hidden;
 }
+
+
+.search {
+  background-color: white !important;
+  border: 1px solid #DBDBDB;
+  margin-bottom: 20px;
+}
+
+.search tr {
+  height:40px;
+}
+
+.search .image.is-64x64 {
+  width: 64px;
+}
+
+.columns:last-child {
+  margin-bottom: 30px;
+  // padding-bottom: -40px;
+}

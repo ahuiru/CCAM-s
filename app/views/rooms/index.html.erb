@@ -1,18 +1,18 @@
 <div class="dm-list">
   <% @anotherEntries.each do |e| %>
     <%= link_to room_path(e.room.id) do %>
-    <div class="columns is-vcentered is-centered partner">
-      <div class="column is-3 image is-inline-block">
-        <%= image_tag e.user.image, class: 'image is-64x64 is-rounded' if @user.image.present? %>
+      <div class="columns is-vcentered is-centered chat-partner is-mobile is-tablet is-desktop">
+        <div class="column is-3-desktop is-4-tablet is-4-mobile image is-inline-block">
+          <%= image_tag e.user.image, class: 'image is-64x64 is-rounded' if @user.image.present? %>
+        </div>
+        <div class="column is-3-desktop is-4-tablet is-4-mobile">
+          <%= e.user.name %><br>
+        </div>
+        <div class="column is-3-desktop is-4-tablet is-4-mobile is-centered">
+          <%= Message.find_by(id: e.room.message_ids.last)&.content %>
+        </div>
       </div>
-      <div class="column is-3">
-        <%= e.user.name %><br>
-      </div>
-      <div class="column is-3">
-        <%= Message.find_by(id: e.room.message_ids.last)&.content %>
-      </div>
-    </div>
-    <hr>
+      <hr>
     <% end %>
   <% end %>
 </div>

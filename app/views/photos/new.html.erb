@@ -1,14 +1,16 @@
-<%= form_with model: @photo, local:true do |f| %>
-  <% if @photo.errors.any? %>
-    <% @photo.errors.full_messages.each do |message| %>
-      <div><%= message %></div>
+<div class="new-photo">
+  <%= form_with model: @photo, local:true do |f| %>
+    <% if @photo.errors.any? %>
+      <% @photo.errors.full_messages.each do |message| %>
+        <div><%= message %></div>
+      <% end %>
     <% end %>
-  <% end %>
-  <div class="field">
-    <%= f.file_field :image %>
-  </div>
-  <div class="field">
-    <%= f.text_area :caption, class: 'textarea' %>
-  </div>
-  <%= f.submit class: 'button is-primary' %>
-<%end%>
+    <div class="field">
+      <%= f.file_field :image %>
+    </div>
+    <div class="field">
+      <%= f.text_area :caption, class: 'textarea' %>
+    </div>
+    <%= f.submit class: 'button is-primary' %>
+  <%end%>
+</div>
