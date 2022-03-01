@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-    before_action :authenticate_user!, only: %i[new create]
+    before_action :authenticate_user!, only: %i[new create destroy edit]
 
     def show
         @photo = Photo.find(params[:id])
@@ -24,6 +24,19 @@ class PhotosController < ApplicationController
         current_user.photos.find(params[:id]).destroy
 
         redirect_to [current_user]
+    end
+
+    def edit
+        @photo = Photo.find(params[:id])
+    end
+
+    def update
+        @photo = Photo.find(params[:id])
+        if @photo.update(photo_params)
+            redirect_to @photo
+        else
+            render :new
+        end
     end
 
 

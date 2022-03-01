@@ -31,6 +31,9 @@
             <%= link_to [@photo], method: :delete do %>
               <i class="fa fa-trash" aria-hidden="true"></i>
             <% end %>
+            <%= link_to edit_photo_path(@photo) do %>
+              <i class="fas fa-edit"></i>
+            <% end %>
           <% end %>
         </div>
       </div>
