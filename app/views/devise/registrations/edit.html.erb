@@ -25,6 +25,11 @@
       <%= f.text_area :profile, autofocus: true, class: 'input' %>
     </div>
 
+    <div class="field">
+      <%= f.label :comic, 'お気に入り漫画' %><br />
+      <%= f.text_area :comic, autofocus: true, class: 'input' %>
+    </div>
+
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
