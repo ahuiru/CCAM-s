@@ -13,12 +13,29 @@
             </div>
             <div class="feature">
               <%= link_to user_followers_path(@user) do %>
-                <p class="has-text-black">フォロワー<%= @user.followers.count %>人</p>
+                <p class="has-text-grey-dark">フォロワー<%= @user.followers.count %>人</p>
               <% end %>
             </div>
             <div class="feature">
               <%= link_to user_followings_path(@user) do %>
-                <p class="has-text-black">フォロー中<%= @user.followings.count %>人</p>
+                <p class="has-text-grey-dark">フォロー中<%= @user.followings.count %>人</p>
+              <% end %>
+            </div>
+            <div>
+              <% if @user.id == current_user.id %>
+              <% else %>
+                <% if @isRoom == true %>
+                  <%= link_to room_path(@roomId) do %>
+                    <p class="button is-dark">チャット</p>
+                  <% end %>
+                <% else %>
+                  <%= form_for @room do |f| %>
+                    <%= fields_for @entry do |e| %>
+                      <%= e.hidden_field :user_id, :value=> @user.id %>
+                    <% end %>
+                    <%= f.submit "chat", class:"chat-button" %>
+                  <% end %>
+                <% end %>
               <% end %>
             </div>
           </div>
@@ -29,10 +46,15 @@
       </tr>
     </table>
 
-
-
-    <%= render 'relationships/follow_button', user: @user %>
-
+    <div id="user_follow_button">
+      <% unless current_user == @user %>
+        <% if current_user.following?(@user) %>
+          <%= render 'relationships/unfollow_button', user: @user %>
+        <% else %>
+          <%= render 'relationships/follow_button', user: @user %>
+        <% end %>
+      <% end %>
+    </div>
 
 
     <div class="tabs">
@@ -45,21 +67,7 @@
             <%= link_to 'edit', edit_user_registration_path %>
           </li>
         <% end %>
-        <li>
-          <% if @user.id == current_user.id %>
-          <% else %>
-            <% if @isRoom == true %>
-              <a href="/rooms/<%= @roomId %>">chat</a>
-            <% else %>
-              <%= form_for @room do |f| %>
-                <%= fields_for @entry do |e| %>
-                  <%= e.hidden_field :user_id, :value=> @user.id %>
-                <% end %>
-                <%= f.submit "chat", class:"chat-button" %>
-              <% end %>
-            <% end %>
-          <% end %>
-        </li>
+
       </ul>
     </div>
 
