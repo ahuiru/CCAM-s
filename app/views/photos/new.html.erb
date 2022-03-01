@@ -5,12 +5,19 @@
         <div><%= message %></div>
       <% end %>
     <% end %>
+
     <div class="field">
       <%= f.file_field :image %>
     </div>
+
     <div class="field">
       <%= f.text_area :caption, class: 'textarea' %>
     </div>
+
+    <div class="field">
+      <%= f.text_area :comic, class: 'input' %>
+    </div>
+
     <%= f.submit class: 'button is-primary' %>
   <%end%>
 </div>

@@ -21,7 +21,10 @@
           <%= link_to @photo.user.email, [@photo.user] %>
         </div>
         <div class="pt-1 pl-2">
-          <%= @photo.caption %>
+          <p><%= @photo.caption %></p>
+        </div>
+        <div class="pt-1 pl-2">
+          <p>漫画:<%= @photo.comic %></p>
         </div>
         <div class="photo-deltete-button has-text-right">
           <% if @photo.user == current_user %>
