@@ -1,7 +1,22 @@
-<%= form_for(current_user.relationships.build, remote: true) do |f| %>
-  <%= hidden_field_tag :follow_id, user.id %>
-  <div class="colmuns">
-    <%= f.submit 'Follow', class: 'btn btn-success btn-block button is-primary column is-12 mb-3' %>
-  </div>
-<% end %>
 
+<div class="columns">
+  <div class="follow-button column is-6">
+    <%= form_for(current_user.relationships.build, remote: true) do |f| %>
+      <%= hidden_field_tag :follow_id, user.id %>
+      <div class="colmuns">
+        <%= f.submit 'Follow', class: 'btn btn-success btn-block button is-primary column is-12 mb-3' %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="chat_link column is-6">
+    <% if @user.id == current_user.id %>
+    <% else %>
+      <% if @isRoom == true %>
+        <%= link_to room_path(@roomId) do %>
+          <p class="is-dark chat-button btn btn-block button is-dark column is-12 mb-3">DM</p>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
