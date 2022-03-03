@@ -10,6 +10,7 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag "application", :media => "all" %>
+    
 
   </head>
 
@@ -18,7 +19,7 @@
       <%= link_to "InstagramRails", [:root], class: 'navbar-item logo' %>
       <div class="navbar-brand navbar-end">
       <% if logged_in? %>
-        <%= link_to search_users_path, class: "btn navbar-item", method: :get do %>
+        <%= link_to search_path, class: "btn navbar-item", method: :get do %>
           <i class="fa fa-search" aria-hidden="true"></i>
         <% end %>
         <%= link_to new_photo_path, class: "btn navbar-item", method: :get do %>

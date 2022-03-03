@@ -15,10 +15,10 @@ Rails.application.routes.draw do
   end
   resources :users do
     resources :likes
-    get :search, on: :collection
     resources :followers
     resources :followings
   end
+  get 'search' => 'searches#search'
   resources :relationships, only: [:create, :destroy]
   resources :messages, :only => [:create]
   resources :rooms, :only => [:create, :show, :index]

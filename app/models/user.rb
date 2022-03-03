@@ -38,4 +38,12 @@ class User < ApplicationRecord
   def following?(other_user)
     self.followings.include?(other_user)
   end
+
+  def self.search_user(search)
+    if search != ""
+      User.where(['name LIKE(?) OR comic LIKE(?)', "%#{search}%", "%#{search}%"])
+    else
+      User.includes(:user).order('created_at DESC')
+    end
+  end
 end
