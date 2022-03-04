@@ -1,7 +1,11 @@
 <% @followers.each do |follower| %>
   <div class="columns is-vcentered is-mobile">
     <div class="column is-1 image follower-image is-inline-block">
-      <%= image_tag follower.image, class: 'btn image is-64x64 is-rounded' %>
+      <% if follower.image.attached? %>
+        <%= image_tag follower.image, class: 'btn image is-64x64 is-rounded' %>
+      <% else %>
+        <%= image_tag 'default.jpeg', class: 'btn image is-64x64 is-rounded' %>
+       <% end %>
     </div>
     <div class="follower-name column is-1">
       <%= link_to follower.name, user_path(follower) %>

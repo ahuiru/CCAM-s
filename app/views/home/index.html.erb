@@ -26,15 +26,21 @@
   </div>
 
   <div class="column is-4 pl-6 none">
-    <table>
+    <table class="columns">
       <tr>
-        <td class="image">
+        <td class="image column is-12">
+          <% if current_user.image.attached? %>
             <%= link_to [current_user] do %>
-              <%= image_tag current_user.image, class: 'icon_image image is-128x128 is-rounded' if current_user.image.present? %>
+              <%= image_tag current_user.image, class: 'icon_image image is-128x128 is-rounded' %>
             <% end %>
+          <% else %>
+            <%= link_to [current_user] do %>
+              <%= image_tag 'default.jpeg', class: "icon_image image is-128x128 is-rounded" %>
+            <% end %>
+          <% end %>
         </td>
-        <td>
-          <%= link_to current_user.email, [current_user], class: 'navbar-item is-size-5' %>
+        <td class="column is-12">
+          <%= link_to current_user.email, [current_user], class: 'is-size-5 has-text-grey-dark' %>
           <div class="pl-4">
             <%= current_user.name %>
           </div>

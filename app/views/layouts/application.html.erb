@@ -10,7 +10,7 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag "application", :media => "all" %>
-    
+
 
   </head>
 
@@ -35,8 +35,14 @@
           <i class="fas fa-crown"></i>
         <% end %>
         <div class="image">
-          <%= link_to current_user, method: :get do %>
-            <%= image_tag current_user.image, class: 'btn image is-32x32 is-rounded navbar-item' %>
+          <% if current_user.image.attached? %>
+            <%= link_to current_user, method: :get do %>
+              <%= image_tag current_user.image, class: 'btn image is-32x32 is-rounded navbar-item' %>
+            <% end %>
+          <% else %>
+            <%= link_to current_user, method: :get do %>
+              <%= image_tag 'default.jpeg', class: "btn image is-32x32 is-rounded navbar-item" %>
+            <% end %>
           <% end %>
         </div>
       <% end %>

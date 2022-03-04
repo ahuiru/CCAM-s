@@ -46,7 +46,11 @@
         <div class="card-image">
           <div class="card-content pb-3">
             <div class="image">
-              <%= image_tag comment.user.image, class: 'image is-32x32 is-rounded'%>
+              <% if comment.user.image.attached? %>
+                <%= image_tag comment.user.image, class: 'image is-32x32 is-rounded'%>
+              <% else %>
+                <%= image_tag 'default.jpeg', class: "image is-32x32 is-rounded" %>
+              <% end %>
             </div>
             <div class="comment-name mt-1">
               <%= link_to comment.user.name, [comment.user], class: 'ml-2' %>

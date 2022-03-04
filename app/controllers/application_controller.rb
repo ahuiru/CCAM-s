@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   add_flash_types :success, :info, :warning, :danger
 
   helper_method :current_user, :logged_in?, :log_in, :login_check
+  # before_create :default_image
 
   # ログイン済ユーザーのみにアクセスを許可する
   before_action :authenticate_user!
@@ -36,4 +37,11 @@ class ApplicationController < ActionController::Base
       redirect_to root_url, danger: "ログインしてください"
     end
   end
+
+  # def default_image
+  #   if !self.image.attached?
+  #     self.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default.png')), filename: 'default.jpeg', content_type: 'image/jpeg')
+  #   end
+  # end
+
 end

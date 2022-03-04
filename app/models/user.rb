@@ -17,7 +17,7 @@ class User < ApplicationRecord
   has_many :entries, dependent: :destroy
   has_many :rooms, through: :entries
 
-  # mount_uploader :image, ImageUploader
+  # mount_uploader :avatar, AvatarUploader
   has_one_attached :image
 
   validates :profile, length: { maximum: 200 }
@@ -39,11 +39,20 @@ class User < ApplicationRecord
     self.followings.include?(other_user)
   end
 
-  # def self.search_user(search)
-  #   if search != ""
-  #     User.where(['name LIKE(?) OR comic LIKE(?)', "%#{search}%", "%#{search}%"])
-  #   else
-  #     User.includes(:user).order('created_at DESC')
+  # def self.guest
+  #   find_or_create_by!(email: 'guest@example.com', image: '') do |user|
+  #     user.password = SecureRandom.urlsafe_base64
+  #     # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
+  #     # 例えば name を入力必須としているならば， user.name = "ゲスト" なども必要
   #   end
   # end
+
+  def self.search_user(search)
+    if search != ""
+      User.where(['name LIKE(?) OR comic LIKE(?) OR email LIKE(?)', "%#{search}%", "%#{search}%", "%#{search}%"])
+    else
+      User.includes(:user).order('created_at DESC')
+    end
+  end
+
 end

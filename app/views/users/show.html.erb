@@ -3,8 +3,14 @@
     <table>
       <tr>
         <td class="image">
-          <%= image_tag @user.image, class: 'image is-128x128 is-rounded' if @user.image.present? %>
+          <% if @user.image.attached? %>
+            <%= image_tag @user.image, class: 'image is-128x128 is-rounded' if @user.image.present? %>
+          <% else %>
+            <%= image_tag 'default.jpeg', class: "image is-128x128 is-rounded" %>
+          <% end %>
         </td>
+
+
         <td class="pl-5 pt-1">
           <div class="title is-3"><%= @user.name %></div>
           <div class="feature-box pb-4">
@@ -22,7 +28,7 @@
               <% end %>
             </div>
             <div>
-              
+
             </div>
           </div>
           <h5 class="is-size-5 has-text-weight-medium"><%= @user.email %></h5>

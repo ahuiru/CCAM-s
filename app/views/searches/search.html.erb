@@ -15,6 +15,20 @@
   <div class="column is-5">
     <tr>
       <td class="pt-2">
+        <% @users.each do |user| %>
+          <a href="/users/<%= user.id %>" class="columns image is-centered">
+            <% if user.image.attached? %>
+              <%= image_tag user.image, class:"image is-64x64 is-rounded column is-4" %>
+            <% else %>
+              <%= image_tag 'default.jpeg', class: "image is-64x64 is-rounded column is-4" %>
+            <% end %>
+            <div class="column pt-4">
+              <%= user.name %>
+            </div>
+          </a>
+        <% end %>
+      </td>
+      <td class="pt-2">
         <div class="column is-7 has-background-white-ter is-paddingless">
           <% @photos.each do |photo| %>
             <div class="card mb-5">
