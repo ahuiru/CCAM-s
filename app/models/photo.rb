@@ -10,7 +10,7 @@ class Photo < ApplicationRecord
 
   def self.search_photo(search)
     if search != ""
-      Photo.where(['caption LIKE(?) OR comic LIKE(?)', "%#{search}%", "%#{search}%"])
+      Photo.where(['caption LIKE(?) OR comic LIKE(?)', "%#{search}%", "%#{search}%"]).order(created_at: :desc)
     else
       Photo.includes(:user).order('created_at DESC')
     end
