@@ -39,13 +39,20 @@ class User < ApplicationRecord
     self.followings.include?(other_user)
   end
 
-  # def self.guest
-  #   find_or_create_by!(email: 'guest@example.com', image: '') do |user|
-  #     user.password = SecureRandom.urlsafe_base64
-  #     # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
-  #     # 例えば name を入力必須としているならば， user.name = "ゲスト" なども必要
-  #   end
-  # end
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.name = "ゲスト"
+      user.image.attach(io: File.open(Rails.root.join("app/assets/images/guest.png")), filename: "guest.png")
+      # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
+      # 例えば name を入力必須としているならば， user.name = "ゲスト" なども必要
+    end
+  end
+
+  def guest?
+    current_user == user.guest
+    
+  end
 
   def self.search_user(search)
     if search != ""
