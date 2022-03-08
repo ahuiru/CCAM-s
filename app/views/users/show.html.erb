@@ -4,7 +4,7 @@
       <tr>
         <td class="image">
           <% if @user.image.attached? %>
-            <%= image_tag @user.image, class: 'image is-128x128 is-rounded' if @user.image.present? %>
+            <%= image_tag @user.image, class: 'image is-128x128 is-rounded' %>
           <% else %>
             <%= image_tag 'default.jpeg', class: "image is-128x128 is-rounded" %>
           <% end %>
@@ -31,7 +31,6 @@
 
             </div>
           </div>
-          <h5 class="is-size-5 has-text-weight-medium"><%= @user.email %></h5>
           <p class="mb-3"><%= @user.profile %></p>
           <p class="mb-3 has-text-weight-bold">お気に入り漫画：<%= @user.comic %></p>
         </td>
@@ -48,21 +47,20 @@
       <% end %>
     </div>
 
+    <% if @user.id == current_user.id %>
+      <div class="columns">
+        <div class="column is-6">
+          <%= link_to 'edit', edit_user_registration_path, class:"btn btn-success btn-block button is-info column is-12 mb-3"  %>
+        </div>
+        <div class="column is-6">
+          <div class="colmuns">
+            <%= link_to 'likes', user_likes_path(@user), class:"btn btn-success btn-block button is-info column is-12 mb-3" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
 
-    <div class="tabs">
-      <ul>
-        <% if @user.id == current_user.id %>
-          <li>
-            <%= link_to 'likes', [@user, :likes] %>
-          </li>
-          <li>
-            <%= link_to 'edit', edit_user_registration_path %>
-          </li>
-        <% end %>
-
-      </ul>
-    </div>
-
+  <hr class="mb-5">
 
     <% @user.photos.each do |photo| %>
       <div class="card mb-5 column is-4-mobile is-4-tablet is-gapless user-card">

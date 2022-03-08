@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>InstagramRailsClone</title>
+    <title>ComicSNS</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -15,45 +15,48 @@
   </head>
 
   <body class="has-background-white-ter">
-    <nav class="navbar">
-      <%= link_to "InstagramRails", [:root], class: 'navbar-item logo' %>
+    <nav class="navbar is-fixed-top">
+      <%= link_to "ComicSNS", [:root], class: 'navbar-item logo' %>
       <div class="navbar-brand navbar-end">
-      <% if logged_in? %>
-        <%= link_to search_path, class: "btn navbar-item", method: :get do %>
-          <i class="fa fa-search" aria-hidden="true"></i>
-        <% end %>
-        <%= link_to new_photo_path, class: "btn navbar-item", method: :get do %>
-          <i class="fa fa-plus-square" aria-hidden="true"></i>
-        <% end %>
-        <%= link_to rooms_path, class: "btn navbar-item", method: :get do %>
-          <i class="fa fa-commenting" aria-hidden="true"></i>
-        <% end %>
-        <%= link_to destroy_user_session_path, class: "btn navbar-item", method: :delete do %>
-          <i class="fa fa-sign-out" aria-hidden="true"></i>
-        <% end %>
-        <%= link_to ranks_path, class:'btn navbar-item' do %>
-          <i class="fas fa-crown"></i>
-        <% end %>
-        <div class="image">
-          <% if current_user.image.attached? %>
-            <%= link_to current_user, method: :get do %>
-              <%= image_tag current_user.image, class: 'btn image is-32x32 is-rounded navbar-item' %>
-            <% end %>
-          <% else %>
-            <%= link_to current_user, method: :get do %>
-              <%= image_tag 'default.jpeg', class: "btn image is-32x32 is-rounded navbar-item" %>
-            <% end %>
+        <% if logged_in? %>
+          <%= link_to search_path, class: "btn navbar-item", method: :get do %>
+            <i class="fa fa-search" aria-hidden="true"></i>
           <% end %>
-        </div>
-      <% end %>
-
-
+          <%= link_to new_photo_path, class: "btn navbar-item", method: :get do %>
+            <i class="fa fa-plus-square" aria-hidden="true"></i>
+          <% end %>
+          <%= link_to rooms_path, class: "btn navbar-item", method: :get do %>
+            <i class="fa fa-commenting" aria-hidden="true"></i>
+          <% end %>
+          <%= link_to destroy_user_session_path, class: "btn navbar-item", method: :delete do %>
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
+          <% end %>
+          <%= link_to ranks_path, class:'btn navbar-item' do %>
+            <i class="fas fa-crown"></i>
+          <% end %>
+          <div class="image">
+            <% if current_user.image.attached? %>
+              <%= link_to current_user, method: :get do %>
+                <%= image_tag current_user.image, class: 'btn image is-32x32 is-rounded navbar-item' %>
+              <% end %>
+            <% else %>
+              <%= link_to current_user, method: :get do %>
+                <%= image_tag 'default.jpeg', class: "btn image is-32x32 is-rounded navbar-item" %>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
       </div>
     </nav>
 
-    <div class="container pt-6">
+    <div class="container">
       <div class="columns is-centered is-mobile is-tablet is-desktop">
         <div class="column is-10-desktop is-11-tablet is-12-mobile">
+          <div class="notifications">
+            <% flash.each do |key, value| %>
+              <%= content_tag(:div, value, class: key) %>
+            <% end %>
+          </div>
           <%= yield %>
         </div>
       </div>

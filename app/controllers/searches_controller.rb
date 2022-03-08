@@ -13,9 +13,7 @@ class SearchesController < ApplicationController
   def search
     if params[:keyword].present?
       @photos = Photo.search_photo(params[:keyword])
-      @users = User.search_user(params[:keyword])
     else
-      @users = User.none
       @photos = Photo.none
     end
   end

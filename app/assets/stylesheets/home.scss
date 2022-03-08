@@ -12,3 +12,24 @@
     border: 2px black;
   }
 }
+
+.photo-icon {
+  display: flex;
+}
+
+.photo-icon-image .image {
+  margin: 10px 13px;
+}
+
+.photo-icon-name {
+  display: flex;
+  align-items: center;
+}
+
+.photo-icon-image .is-rounded {
+  border-radius: 50px !important;
+}
+
+.card-like {
+  float: right;
+}

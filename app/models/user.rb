@@ -51,15 +51,7 @@ class User < ApplicationRecord
 
   def guest?
     current_user == user.guest
-    
-  end
 
-  def self.search_user(search)
-    if search != ""
-      User.where(['name LIKE(?) OR comic LIKE(?) OR email LIKE(?)', "%#{search}%", "%#{search}%", "%#{search}%"])
-    else
-      User.includes(:user).order('created_at DESC')
-    end
   end
-
+  
 end

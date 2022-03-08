@@ -14,16 +14,20 @@ class PhotosController < ApplicationController
         @photo = current_user.photos.new(photo_params)
 
         if @photo.save
-            redirect_to root_url
+            redirect_to root_url, notice: '投稿しました'
         else
-            render :new
+            flash.now[:alert] = '投稿に失敗しました'
+            render action: "new"
         end
     end
 
     def destroy
-        current_user.photos.find(params[:id]).destroy
-
-        redirect_to [current_user]
+        if current_user.photos.find(params[:id]).destroy
+            flash.now[:success] = '投稿を削除しました'
+            redirect_to [current_user]
+        else
+            flash.now[:alert] = '投稿の削除に失敗しました'
+        end
     end
 
     def edit

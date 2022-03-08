@@ -4,7 +4,7 @@
       <div class="columns is-vcentered is-centered chat-partner is-mobile is-tablet is-desktop">
         <div class="column is-3-desktop is-4-tablet is-4-mobile image is-inline-block">
           <% if e.user.image.attached? %>
-            <%= image_tag e.user.image, class: 'image is-64x64 is-rounded' if @user.image.present? %>
+            <%= image_tag e.user.image, class: 'image is-64x64 is-rounded' %>
           <% else %>
             <%= image_tag 'default.jpeg', class: "image is-64x64 is-rounded" %>
           <% end %>

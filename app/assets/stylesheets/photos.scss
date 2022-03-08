@@ -8,3 +8,11 @@
   }
 
 }
+
+.comment .image {
+  float: left;
+}
+
+.comment .image img.is-rounded {
+  border-radius: 50px !important;
+}
