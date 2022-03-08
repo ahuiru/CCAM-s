@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
 
-  
+
 
   def create
     @photo = Photo.find(params[:photo_id])
@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to [@photo]
     else
+      flash.now[:alert] = '送信に失敗しました'
       render 'photos/show'
     end
   end

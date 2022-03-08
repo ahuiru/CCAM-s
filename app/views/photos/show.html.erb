@@ -1,5 +1,5 @@
 
-<div class="columns  is-centered">
+<div class="columns  is-centered mt-2">
   <div class="column is-7">
     <div class="card mb-6">
       <div class="card-image">
@@ -72,16 +72,11 @@
       <div class="card mb-1 mt-5">
         <div class="card-image">
           <div class="card-content">
-            <% if @comment.errors.any? %>
-              <% @comment.errors.full_messages.each do |message| %>
-                <div><%= message %></div>
-              <% end %>
-            <% end %>
             <%= form_with model: [@photo, @comment], local:true do |f| %>
               <div class="field">
                 <%= f.text_field :body, class: 'input' %>
               </div>
-              <%= f.submit class: 'button is-primary' %>
+              <%= f.submit '送信', class: 'button is-primary' %>
             <% end %>
           <% end %>
         </div>
