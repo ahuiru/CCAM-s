@@ -30,29 +30,6 @@
       <%= f.text_area :comic, autofocus: true, class: 'input' %>
     </div>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-    <% end %>
-
-    <div class="field">
-      <%= f.label :password, 'パスワード' %><br />
-      <%= f.password_field :password, autocomplete: "new-password", class: 'input' %>
-      <% if @minimum_password_length %>
-        <br />
-        <em>※<%= @minimum_password_length %>文字以上</em>
-      <% end %>
-    </div>
-
-    <div class="field">
-      <%= f.label :password_confirmation, 'パスワード確認' %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'input' %>
-    </div>
-
-    <div class="field">
-      <%= f.label :current_password, '現パスワード' %><br />
-      <%= f.password_field :current_password, autocomplete: "current-password", class: 'input' %>
-    </div>
-
     <div class="actions">
       <%= f.submit "Update", class:"button is-primary" %>
     </div>
