@@ -14,8 +14,8 @@
 
   </head>
 
-  <body class="has-background-white-ter">
-    <nav class="navbar is-fixed-top">
+  <body>
+    <nav class="navbar is-fixed-top is-mobile is-tablet is-desktop">
       <%= link_to "CCAM-s", [:root], class: 'navbar-item logo' %>
       <div class="navbar-brand navbar-end">
         <% if logged_in? %>
@@ -41,7 +41,7 @@
               <% end %>
             <% else %>
               <%= link_to current_user, method: :get do %>
-                <%= image_tag 'default.jpeg', class: "btn image is-32x32 is-rounded navbar-item" %>
+                <%= image_tag 'default.jpeg', class: "btn is-32x32 image is-rounded navbar-item" %>
               <% end %>
             <% end %>
           </div>
@@ -51,7 +51,7 @@
 
     <div class="container">
       <div class="columns is-centered is-mobile is-tablet is-desktop">
-        <div class="column is-10-desktop is-11-tablet is-12-mobile">
+        <div class="column is-10-desktop is-11-tablet is-12-mobile background">
           <div class="notifications">
             <% flash.each do |key, value| %>
               <%= content_tag(:div, value, class: key) %>

@@ -17,7 +17,6 @@
   <div class="dm-content">
     <% if @messages.present? %>
       <% @messages.each do |m| %>
-
       <% if m.user != current_user %>
         <div class="columns">
           <figure class="image column is-1">
@@ -30,19 +29,17 @@
           <div class="column is-3 balloon1-left">
             <strong class="column is-11 has-text-centered"><%= m.content %></strong>
           </div>
-          <hr>
         </div>
       <% else %>
         <div class="columns level-right">
           <div class="column is-3 balloon1-right"><strong class="column is-11 has-text-centered"><%= m.content %></strong></div>
           <figure class="image column is-1">
-            <% if m.user.image? %>
+            <% if m.user.image.attached? %>
               <%= image_tag m.user.image, class: 'image is-48x48 is-rounded chat-image' %>
             <% else %>
               <%= image_tag 'default.jpeg', class: "image is-48x48 is-rounded chat-image" %>
             <% end %>
           </figure>
-          <hr>
         </div>
       <% end %>
 

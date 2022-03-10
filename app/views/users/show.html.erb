@@ -1,4 +1,4 @@
-<div class="columns is-centered is-mobile is-tablet is-desktop">
+<div class="columns is-centered is-mobile is-tablet is-desktop user-page">
   <div class="column is-9-desktop is-10-tablet is-12-mobile">
     <table>
       <tr>
@@ -60,19 +60,16 @@
       </div>
     <% end %>
 
-  <hr class="mb-5">
+    <hr class="mb-5">
 
     <% @user.photos.each do |photo| %>
-      <div class="card mb-5 column is-4-mobile is-4-tablet is-gapless user-card">
+      <div class="card column is-4-mobile is-4-tablet is-gapless user-card mb-1">
         <div class="card-image">
-          <figure class="image">
-            <%= link_to [photo] do %>
-              <%= image_tag photo.image %>
-            <% end %>
-          </figure>
+          <%= link_to [photo] do %>
+            <%= image_tag photo.image, class:"img" %>
+          <% end %>
         </div>
       </div>
-
     <% end %>
   </div>
 </div>

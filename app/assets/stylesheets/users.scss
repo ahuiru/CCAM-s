@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+body {
+  // line-height: ;
+}
 
 .icon_image {
   width: 200px;
@@ -16,6 +19,7 @@
 .user-card {
   float: left;
   padding: 0;
+  line-height: 0;
 }
 
 .chat-button {
@@ -33,22 +37,22 @@
   overflow: hidden;
 }
 
-
-.search {
-  background-color: white !important;
-  border: 1px solid #DBDBDB;
-  margin-bottom: 20px;
-}
-
-.search tr {
-  height:40px;
-}
-
-.search .image.is-64x64 {
-  width: 64px;
-}
-
 .columns:last-child {
   margin-bottom: 30px;
   // padding-bottom: -40px;
+}
+
+.card-image .img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  line-height: 0;
+}
+
+.user-page {
+  // height: 700px;
+}
+
+.user-page table {
+  margin-top: 50px;
 }

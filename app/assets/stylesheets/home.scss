@@ -6,6 +6,9 @@
   position:sticky;
 }
 
+.user-profile tr {
+  position: fixed;
+}
 
 @media screen and (max-width: 768px) {
   .home {

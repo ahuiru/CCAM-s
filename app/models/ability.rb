@@ -11,8 +11,6 @@ class Ability
       if user && user.admin_flg?
         can :access, :rails_admin
         can :manage, :all
-      else
-        can :manage, :all
       end
     end
     #

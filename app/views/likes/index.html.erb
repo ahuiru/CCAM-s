@@ -1,49 +1,49 @@
-<div class="columns is-centered">
-    <div class="column is-7 has-background-white-ter is-paddingless">
-      <% @photos.each.with_index(1) do |photo| %>
-        <div class="card mb-5">
-          <div class="card-image">
-            <div class="photo-icon">
-              <div class="photo-icon-image">
-                <% if photo.user.image.attached? %>
-                  <%= link_to photo.user, method: :get do %>
-                    <%= image_tag photo.user.image, class: 'image is-32x32 is-rounded' %>
-                  <% end %>
-                <% else %>
-                  <%= link_to photo.user, method: :get do %>
-                    <%= image_tag 'default.jpeg', class: "image is-32x32 is-rounded" %>
-                  <% end %>
+<div class="columns is-centered mt-5">
+  <div class="column is-7 has-background-white-ter is-paddingless">
+    <% @photos.each.with_index(1) do |photo| %>
+      <div class="card mb-5">
+        <div class="card-image">
+          <div class="photo-icon">
+            <div class="photo-icon-image">
+              <% if photo.user.image.attached? %>
+                <%= link_to photo.user, method: :get do %>
+                  <%= image_tag photo.user.image, class: 'image is-32x32 is-rounded' %>
                 <% end %>
-              </div>
-              <div class="photo-icon-name">
-                <%= link_to photo.user.name, [photo.user], class:'has-text-black has-text-weight-bold' %>
-              </div>
-            </div>
-            <figure class="image">
-              <%= link_to [photo] do %>
-                <%= image_tag photo.image %>
+              <% else %>
+                <%= link_to photo.user, method: :get do %>
+                  <%= image_tag 'default.jpeg', class: "image is-32x32 is-rounded" %>
+                <% end %>
               <% end %>
-            </figure>
-          </div>
-          <div class="card-content">
-            <div class="card-like">
-              <p  class="is-size-4 has-text-right like"><i class="far fa-heart has-text-danger mr-1"></i><%= photo.likes.count %></p>
             </div>
-            <div class="card-content-text">
-              <div>
-                <p><%= photo.caption %></p>
-              </div>
-              <div>
-                <p class="mt-2 mb-1 ml-1">漫画:<%= photo.comic %></p>
-              </div>
-              <div>
-                <%= link_to photo_path(photo) do %>
-                  <p class="is-size-7 has-text-grey">コメント<%= photo.comments.count %>件</p>
-                <% end %>
-              </div>
+            <div class="photo-icon-name">
+              <%= link_to photo.user.name, [photo.user], class:'has-text-black has-text-weight-bold' %>
+            </div>
+          </div>
+          <figure class="image">
+            <%= link_to [photo] do %>
+              <%= image_tag photo.image %>
+            <% end %>
+          </figure>
+        </div>
+        <div class="card-content">
+          <div class="card-like">
+            <p  class="is-size-4 has-text-right like"><i class="far fa-heart has-text-danger mr-1"></i><%= photo.likes.count %></p>
+          </div>
+          <div class="card-content-text">
+            <div>
+              <p><%= photo.caption %></p>
+            </div>
+            <div>
+              <p class="mt-2 mb-1 ml-1">漫画:<%= photo.comic %></p>
+            </div>
+            <div>
+              <%= link_to photo_path(photo) do %>
+                <p class="is-size-7 has-text-grey">コメント<%= photo.comments.count %>件</p>
+              <% end %>
             </div>
           </div>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
+</div>

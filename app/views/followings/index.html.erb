@@ -1,5 +1,6 @@
+<hr>
 <% @followings.each do |following| %>
-  <div class="columns is-vcentered">
+  <div class="columns is-vcentered pt-2">
     <div class="column is-1 image following-image is-inline-block">
       <% if following.image.attached? %>
         <%= image_tag following.image, class: 'btn image is-64x64 is-rounded' %>
@@ -11,4 +12,5 @@
       <%= link_to following.name, user_path(following) %>
     </div>
   </div>
+  <hr>
 <% end %>

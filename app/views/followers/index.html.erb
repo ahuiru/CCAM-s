@@ -1,3 +1,4 @@
+<hr>
 <% @followers.each do |follower| %>
   <div class="columns is-vcentered is-mobile">
     <div class="column is-1 image follower-image is-inline-block">
@@ -11,4 +12,5 @@
       <%= link_to follower.name, user_path(follower) %>
     </div>
   </div>
+  <hr>
 <% end %>

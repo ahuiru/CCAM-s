@@ -3,43 +3,39 @@
   <div class="column is-4-desktop mr-5">
     <h1>Search</h1>
     <%= form_with url: search_path, method: :get, local: true do |f| %>
-      <div class="field">
-        <%= f.text_field :keyword, class: 'input' %>
-      </div>
+      <div class="search-field">
+        <div class="field">
+          <%= f.text_field :keyword, class: 'input' %>
+        </div>
         <%= f.submit :search, class:'button is-primary' %>
+      </div>
     <% end %>
   </div>
 </div>
 
 <div class="columns is-vcentered is-centered search pt-5 is-mobile is-tablet is-desktop">
-  <div class="column is-5">
-    <tr>
-      <td class="pt-2">
-        <div class="column is-7 has-background-white-ter is-paddingless">
-          <% @photos.each do |photo| %>
-            <div class="card mb-5">
-              <div class="card-image">
-                <figure class="image">
-                  <%= link_to [photo] do %>
-                    <%= image_tag photo.image %>
-                  <% end %>
-                </figure>
-              </div>
-              <div class="card-content">
-                <div>
-                  <%= link_to photo.user.email, [photo.user] %>
-                </div>
-                <div>
-                  <p><%= photo.caption %></p>
-                </div>
-                <div>
-                  <p>漫画:<%= photo.comic %></p>
-                </div>
-              </div>
-            </div>
-          <% end %>
+  <div class="column is-7 has-background-white-ter is-paddingless">
+    <% @photos.each do |photo| %>
+      <div class="card mb-5">
+        <div class="card-image">
+          <figure class="image">
+            <%= link_to [photo] do %>
+              <%= image_tag photo.image %>
+            <% end %>
+          </figure>
         </div>
-      </td>
-    </tr>
+        <div class="card-content">
+          <div>
+            <%= link_to photo.user.email, [photo.user] %>
+          </div>
+          <div>
+            <p><%= photo.caption %></p>
+          </div>
+          <div>
+            <p>漫画:<%= photo.comic %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
