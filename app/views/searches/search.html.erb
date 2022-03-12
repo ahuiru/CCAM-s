@@ -1,23 +1,38 @@
 
 <div class="columns is-vcentered is-centered search pt-5 is-mobile is-tablet is-desktop">
   <div class="column is-4-desktop mr-5">
-    <h1>Search</h1>
     <%= form_with url: search_path, method: :get, local: true do |f| %>
       <div class="search-field">
         <div class="field">
           <%= f.text_field :keyword, class: 'input' %>
         </div>
-        <%= f.submit :search, class:'button is-primary' %>
+        <%= f.submit :search, class:'button is-info ml-2' %>
       </div>
     <% end %>
   </div>
 </div>
 
-<div class="columns is-vcentered is-centered search pt-5 is-mobile is-tablet is-desktop">
-  <div class="column is-7 has-background-white-ter is-paddingless">
+<div class="columns is-centered p-6">
+  <div class="column is-7 is-paddingless">
     <% @photos.each do |photo| %>
       <div class="card mb-5">
         <div class="card-image">
+          <div class="photo-icon">
+            <div class="photo-icon-image">
+              <% if photo.user.image.attached? %>
+                <%= link_to photo.user, method: :get do %>
+                  <%= image_tag photo.user.image, class: 'image is-32x32 is-rounded' %>
+                <% end %>
+              <% else %>
+                <%= link_to photo.user, method: :get do %>
+                  <%= image_tag 'default.jpeg', class: "image is-32x32 is-rounded" %>
+                <% end %>
+              <% end %>
+            </div>
+            <div class="photo-icon-name">
+              <%= link_to photo.user.name, [photo.user], class:'has-text-black has-text-weight-bold' %>
+            </div>
+          </div>
           <figure class="image">
             <%= link_to [photo] do %>
               <%= image_tag photo.image %>
@@ -25,14 +40,21 @@
           </figure>
         </div>
         <div class="card-content">
-          <div>
-            <%= link_to photo.user.email, [photo.user] %>
+          <div class="card-like">
+            <p  class="is-size-4 has-text-right like"><i class="far fa-heart has-text-danger mr-1"></i><%= photo.likes.count %></p>
           </div>
-          <div>
-            <p><%= photo.caption %></p>
-          </div>
-          <div>
-            <p>漫画:<%= photo.comic %></p>
+          <div class="card-content-text">
+            <div>
+              <p><%= photo.caption %></p>
+            </div>
+            <div>
+              <p class="mt-2 mb-1 ml-1">漫画:<%= photo.comic %></p>
+            </div>
+            <div>
+              <%= link_to photo_path(photo) do %>
+                <p class="is-size-7 has-text-grey">コメント<%= photo.comments.count %>件</p>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>

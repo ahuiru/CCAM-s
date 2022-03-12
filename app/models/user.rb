@@ -49,9 +49,6 @@ class User < ApplicationRecord
     end
   end
 
-  def guest?
-    current_user == user.guest
-
-  end
   
+
 end

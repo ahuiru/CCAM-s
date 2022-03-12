@@ -1,5 +1,6 @@
 
-<div class="columns is-centered home mt-3">
+<p class="is-size-3 rank-logo">ランキング</p>
+<div class="columns is-centered mt-3">
   <div class="column is-7 has-background-white-ter is-paddingless p-6">
     <% @photo.each.with_index(1) do |photo| %>
       <div class="card mb-5">
@@ -62,7 +63,7 @@
             <% end %>
           <% end %>
         </td>
-        <td class="column is-12">
+        <td class="column is-12 user-profile-name">
           <%= link_to current_user.name, [current_user], class: 'is-size-5 has-text-grey-dark' %>
         </td>
       </tr>

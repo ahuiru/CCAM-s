@@ -37,6 +37,7 @@ class ApplicationController < ActionController::Base
       redirect_to root_url, danger: "ログインしてください"
     end
   end
+  
 
   # def default_image
   #   if !self.image.attached?

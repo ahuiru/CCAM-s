@@ -8,7 +8,7 @@
         </figure>
       </div>
       <div class="card-content pt-4">
-        <div class="like-button mr-3 pt-1" id="like-button-<%= @photo.id %>">
+        <div class="like-button mr-4" id="like-button-<%= @photo.id %>">
           <% if current_user.likes.exists?(photo_id: @photo.id) %>
             <%= render 'likes/unlike_button', photo: @photo %>
           <% else %>
@@ -22,7 +22,7 @@
           <p><%= @photo.caption %></p>
         </div>
         <div class="pt-1 pl-2">
-          <p>漫画:<%= @photo.comic %></p>
+          <p class="ml-1">漫画:<%= @photo.comic %></p>
         </div>
         <div class="photo-deltete-button has-text-right">
           <% if @photo.user == current_user %>
@@ -76,7 +76,7 @@
               <div class="field">
                 <%= f.text_field :body, class: 'input' %>
               </div>
-              <%= f.submit '送信', class: 'button is-primary' %>
+              <%= f.submit '送信', class: 'button is-info' %>
             <% end %>
           <% end %>
         </div>

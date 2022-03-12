@@ -25,7 +25,7 @@
           <%= fields_for @entry do |e| %>
             <%= e.hidden_field :user_id, :value=> @user.id %>
           <% end %>
-          <p><%= f.submit "メッセージを送る", class:"chat-button btn btn-block button is-primary column is-12 mb-3" %></p>
+          <p><%= f.submit "メッセージを送る", class:"chat-button btn btn-block button is-info column is-12 mb-3" %></p>
         <% end %>
       <% end %>
     <% end %>

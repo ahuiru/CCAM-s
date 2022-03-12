@@ -1,8 +1,8 @@
 <div class="columns is-centered is-mobile is-tablet is-desktop user-page">
   <div class="column is-9-desktop is-10-tablet is-12-mobile">
     <table>
-      <tr>
-        <td class="image">
+      <tr class="columns">
+        <td class="image column is-5">
           <% if @user.image.attached? %>
             <%= image_tag @user.image, class: 'image is-128x128 is-rounded' %>
           <% else %>
@@ -11,7 +11,7 @@
         </td>
 
 
-        <td class="pl-5 pt-1">
+        <td class="pt-1 column is-5">
           <div class="title is-3"><%= @user.name %></div>
           <div class="feature-box pb-4">
             <div class="feature">
@@ -63,7 +63,7 @@
     <hr class="mb-5">
 
     <% @user.photos.each do |photo| %>
-      <div class="card column is-4-mobile is-4-tablet is-gapless user-card mb-1">
+      <div class="card column is-4-mobile is-4-tablet is-gapless user-card">
         <div class="card-image">
           <%= link_to [photo] do %>
             <%= image_tag photo.image, class:"img" %>

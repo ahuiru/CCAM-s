@@ -10,6 +10,10 @@
   position: fixed;
 }
 
+.user-profile .user-profile-name {
+  text-align: center!important;
+}
+
 @media screen and (max-width: 768px) {
   .home {
     border: 2px black;

@@ -1,42 +1,42 @@
 
 <div class="has-background-white edit-page">
-  <h1>プロフィール編集</h1>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
-    <div class="field">
-      <%= f.label :image, 'プロフィール写真' %><br/>
-      <%= f.file_field :image %>
+    <div class="field columns p-5">
+      <%= f.label :image, 'プロフィール写真', class:"input-text-name column has-text-centered has-text-weight-bold" %><br/>
+      <%= f.file_field :image, class: 'column is-9' %>
     </div>
 
-    <div class="field">
-      <%= f.label :email, 'メールアドレス' %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'input' %>
+    <div class="field columns p-2">
+      <%= f.label :email, 'メールアドレス', class:"input-text-name column has-text-centered has-text-weight-bold" %><br />
+      <%= f.email_field :email, class: 'input column is-9' %>
     </div>
 
-    <div class="field">
-      <%= f.label :name, 'ユーザーネーム' %><br />
-      <%= f.text_field :name, autocomplete: "name", class: 'input' %>
+    <div class="field columns p-2">
+      <%= f.label :name, 'ユーザーネーム', class:"input-text-name column has-text-centered has-text-weight-bold" %><br />
+      <%= f.text_field :name, class: 'input column is-9' %>
     </div>
 
-    <div class="field">
-      <%= f.label :profile, '自己紹介' %><br />
-      <%= f.text_area :profile, autofocus: true, class: 'input' %>
+    <div class="field columns p-2">
+      <%= f.label :profile, '自己紹介', class:"input-text-name column has-text-centered has-text-weight-bold" %><br />
+      <%= f.text_area :profile, class: 'input column is-9' %>
     </div>
 
-    <div class="field">
-      <%= f.label :comic, 'お気に入り漫画' %><br />
-      <%= f.text_area :comic, autofocus: true, class: 'input' %>
+    <div class="field columns p-2">
+      <%= f.label :comic, 'お気に入り漫画', class:"input-text-name column has-text-centered has-text-weight-bold" %><br />
+      <%= f.text_field :comic, class: 'input column is-9' %>
     </div>
 
     <div class="actions">
-      <%= f.submit "Update", class:"button is-primary" %>
+      <%= f.submit "更新する", class:"button is-info" %>
     </div>
   <% end %>
 
 
-  <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, class:"button is-primary mt-3", method: :delete %>
+  <div class="has-text-right">
+    <%= button_to "アカウントの削除", registration_path(resource_name), data: { confirm: "本当に削除しますか？削除するとデータは戻りません。" }, class:"button is-info mt-3", method: :delete %>
+  </div>
 
-  <%= link_to "Back", :back %>
 </div>
