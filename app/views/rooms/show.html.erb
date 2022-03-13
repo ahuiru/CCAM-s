@@ -17,22 +17,24 @@
     <% if @messages.present? %>
       <% @messages.each do |m| %>
       <% if m.user != current_user %>
-        <div class="columns">
-          <figure class="image column is-1">
+        <div class="columns level-left is-mobile is-tablet is-desktop">
+          <figure class="image column is-1-desktop is-3-mobile">
             <% if m.user.image.attached? %>
               <%= image_tag m.user.image, class: 'image is-48x48 is-rounded chat-image' %>
             <% else %>
               <%= image_tag 'default.jpeg', class: "image is-48x48 is-rounded chat-image" %>
             <% end %>
           </figure>
-          <div class="column is-3 balloon1-left">
-            <strong class="column is-11 has-text-centered"><%= m.content %></strong>
+          <div class="column is-3-desktop is-7-mobile balloon1-left">
+            <strong class="column has-text-centered"><%= m.content %></strong>
           </div>
         </div>
       <% else %>
-        <div class="columns level-right">
-          <div class="column is-3 balloon1-right"><strong class="column is-11 has-text-centered"><%= m.content %></strong></div>
-          <figure class="image column is-1">
+        <div class="columns level-right is-mobile is-tablet is-desktop">
+          <div class="column is-3-desktop is-7-mobile balloon1-right">
+            <strong class="column has-text-centered"><%= m.content %></strong>
+          </div>
+          <figure class="image column is-1-desktop is-3-mobile">
             <% if m.user.image.attached? %>
               <%= image_tag m.user.image, class: 'image is-48x48 is-rounded chat-image' %>
             <% else %>
@@ -48,7 +50,7 @@
     <% end %>
     <div class="dm-text mb-5 pb-4">
       <%= form_for @message do |f| %>
-        <%= f.text_field :content, :placeholder => "メッセージを入力して下さい" , :style=>"width: 60%", class: 'input mt-5' %>
+        <%= f.text_field :content, :placeholder => "メッセージを入力..." , :style=>"width: 60%", class: 'input mt-5' %>
         <%= f.hidden_field :room_id, :value => @room.id %>
         <br>
         <%= f.submit "送信", class: 'button is-info ml-2' %>

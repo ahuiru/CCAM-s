@@ -1,30 +1,30 @@
 <div class="columns is-centered is-mobile is-tablet is-desktop user-page">
   <div class="column is-9-desktop is-10-tablet is-12-mobile">
     <table>
-      <tr class="columns">
-        <td class="image column is-5">
+      <tr>
+        <td class="image images">
           <% if @user.image.attached? %>
-            <%= image_tag @user.image, class: 'image is-128x128 is-rounded' %>
+            <%= image_tag @user.image, class: 'image is-rounded' %>
           <% else %>
-            <%= image_tag 'default.jpeg', class: "image is-128x128 is-rounded" %>
+            <%= image_tag 'default.jpeg', class: "image is-rounded" %>
           <% end %>
         </td>
 
 
-        <td class="pt-1 column is-5">
+        <td class="pt-1 features">
           <div class="title is-3"><%= @user.name %></div>
           <div class="feature-box pb-4">
             <div class="feature">
-              <p>投稿<%= @user.photos.count %>件</p>
+              <p class="has-text-centered is-size-5"><%= @user.photos.count %><br><span class="is-size-6">投稿</span></p>
             </div>
             <div class="feature">
               <%= link_to user_followers_path(@user) do %>
-                <p class="has-text-grey-dark">フォロワー<%= @user.followers.count %>人</p>
+                <p class="has-text-grey-dark has-text-centered is-size-5 pl-2 pr-2"><%= @user.followers.count %><br><span class="is-size-6">フォロワー</span></p>
               <% end %>
             </div>
             <div class="feature">
               <%= link_to user_followings_path(@user) do %>
-                <p class="has-text-grey-dark">フォロー中<%= @user.followings.count %>人</p>
+                <p class="has-text-grey-dark has-text-centered is-size-5"><%= @user.followings.count %><br><span class="is-size-6">フォロー中</span></p>
               <% end %>
             </div>
             <div>
@@ -48,14 +48,12 @@
     </div>
 
     <% if @user.id == current_user.id %>
-      <div class="columns">
+      <div class="columns buttons">
         <div class="column is-6">
-          <%= link_to 'edit', edit_user_registration_path, class:"btn btn-success btn-block button is-info column is-12 mb-3"  %>
+          <%= link_to 'edit', edit_user_registration_path, class:"btn btn-success btn-block button is-info column is-12 mb-3 user-edit"  %>
         </div>
         <div class="column is-6">
-          <div class="colmuns">
-            <%= link_to 'likes', user_likes_path(@user), class:"btn btn-success btn-block button is-info column is-12 mb-3" %>
-          </div>
+          <%= link_to 'likes', user_likes_path(@user), class:"btn btn-success btn-block button is-info column is-12 mb-3" %>
         </div>
       </div>
     <% end %>

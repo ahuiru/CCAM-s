@@ -54,5 +54,49 @@ body {
 }
 
 .user-page table {
-  margin-top: 50px;
+  margin: 50px auto 20px auto;
+}
+
+.user-page .images {
+  margin-right: 50px;
+}
+
+.user-page .image .image {
+  height: 150px;
+  width: 150px;
+}
+
+.user-page .features {
+  padding-right: 100px;
+}
+
+@media screen and (max-width: 768px) {
+  .user-page .image .image {
+    height: 70px;
+    width: 70px;
+  }
+
+  .user-page .images {
+    margin-right: 0px;
+  }
+
+  .user-page .features {
+    padding-right: 0;
+  }
+
+  .features .title {
+    font-size: 20px;
+    margin-top: 20px;
+    margin-left: 10px;
+  }
+
+  .user-page .buttons{
+    justify-content: center;
+  }
+
+  .user-page .buttons .button {
+    width: 200px;
+    margin: 0 auto !important;
+
+  }
 }

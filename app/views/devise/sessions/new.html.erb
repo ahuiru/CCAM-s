@@ -1,14 +1,12 @@
 
-<div class="columns session-new">
-  <div class="column">
-    <h1 class="is-size-3">漫画やアニメでつながるSNS<br>
-    あの1シーンをCCAM-sで</h1>
-  </div>
+<div class="columns is-centered session-new pt-5">
 
-  <div class="column">
-    <div class="login-logo pb-3">
-      <p class="is-size-3">ログイン</p>
-      <%= link_to "新規登録", new_user_registration_path, class:"pt-3 pl-2" %>
+  <div class="column is-7">
+    <h1 class="has-text-centered title">漫画やアニメでつながるSNS<br>
+    あの1シーンをCCAM-sで</h1>
+    <div class="login-logo pb-3 pt-3">
+      <p class="is-size-4">ログイン</p>
+      <%= link_to "新規登録", new_user_registration_path, class:"pt-2 pl-2" %>
     </div>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field">

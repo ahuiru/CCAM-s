@@ -1,14 +1,14 @@
-<hr>
+<hr class="mt-2">
 <% @followings.each do |following| %>
-  <div class="columns is-vcentered pt-2">
-    <div class="column is-1 image following-image is-inline-block">
+  <div class="columns is-vcentered pt-2 is-mobile is-tablet is-desktop">
+    <div class="column is-2-desktop is-4-mobile image following-image">
       <% if following.image.attached? %>
         <%= image_tag following.image, class: 'btn image is-64x64 is-rounded' %>
       <% else %>
         <%= image_tag 'default.jpeg', class: 'btn image is-64x64 is-rounded' %>
        <% end %>
     </div>
-    <div class="following-name column is-1">
+    <div class="following-name column is-10-desktop is-7-mobile">
       <%= link_to following.name, user_path(following) %>
     </div>
   </div>
