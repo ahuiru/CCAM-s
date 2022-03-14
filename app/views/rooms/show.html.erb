@@ -18,23 +18,23 @@
       <% @messages.each do |m| %>
       <% if m.user != current_user %>
         <div class="columns level-left is-mobile is-tablet is-desktop">
-          <figure class="image column is-1-desktop is-3-mobile">
+          <figure class="image column is-1-desktop is-2-tablet is-3-mobile">
             <% if m.user.image.attached? %>
               <%= image_tag m.user.image, class: 'image is-48x48 is-rounded chat-image' %>
             <% else %>
               <%= image_tag 'default.jpeg', class: "image is-48x48 is-rounded chat-image" %>
             <% end %>
           </figure>
-          <div class="column is-3-desktop is-7-mobile balloon1-left">
+          <div class="column is-3-desktop is-5-tablet is-7-mobile balloon1-left">
             <strong class="column has-text-centered"><%= m.content %></strong>
           </div>
         </div>
       <% else %>
         <div class="columns level-right is-mobile is-tablet is-desktop">
-          <div class="column is-3-desktop is-7-mobile balloon1-right">
+          <div class="column is-3-desktop is-5-tablet is-7-mobile balloon1-right">
             <strong class="column has-text-centered"><%= m.content %></strong>
           </div>
-          <figure class="image column is-1-desktop is-3-mobile">
+          <figure class="image column is-1-desktop is-2-tablet is-3-mobile">
             <% if m.user.image.attached? %>
               <%= image_tag m.user.image, class: 'image is-48x48 is-rounded chat-image' %>
             <% else %>

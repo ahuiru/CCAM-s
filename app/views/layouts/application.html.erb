@@ -15,9 +15,11 @@
   </head>
 
   <body>
-    <nav class="navbar is-fixed-top is-mobile is-tablet is-desktop">
-      <%= link_to "CCAM-s", [:root], class: 'navbar-item logo' %>
-      <div class="navbar-brand navbar-end">
+    <nav class="navbar is-fixed-top is-mobile is-tablet is-desktop pt-2 pb-2">
+      <div class="logo">
+        <%= link_to "CCAM-s", [:root], class: 'navbar-item is-5-tablet is-5-mobile' %>
+      </div>
+      <div class="navbar-brand navbar-end is-7-tablet is-7-mobile">
         <% if logged_in? %>
           <%= link_to search_path, class: "btn navbar-item", method: :get do %>
             <i class="fa fa-search" aria-hidden="true"></i>

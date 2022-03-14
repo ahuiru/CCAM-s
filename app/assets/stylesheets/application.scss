@@ -42,6 +42,10 @@ body {
    min-height: 100%;
 }
 
+.logo {
+  font-family:"ヒラギノ丸ゴ Pro W4","ヒラギノ丸ゴ Pro","Hiragino Maru Gothic Pro","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","HG丸ｺﾞｼｯｸM-PRO","HGMaruGothicMPRO";
+}
+
 
 body > div.container {
   height: auto; /* 要素を超えた分の背景が伸びないブラウザ用 */
@@ -75,6 +79,11 @@ hr {
  nav .logo {
   font-family: 'Homemade Apple', cursive;
   margin-left: 150px;
+
+ }
+
+ nav .logo .navbar-item {
+  line-height: 36px;
  }
 
  .nav-icon-image {
@@ -93,7 +102,7 @@ hr {
 
 .image .navbar-item {
   padding: 0;
-  margin: 9px 0 0 4px;
+  margin: 9px 3px 3px 4px;
 }
 
 .background {
@@ -102,22 +111,40 @@ hr {
 }
 
 //タブレット
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 769px) and ( max-width:1024px) {
+  .navbar-brand {
+    justify-content: right;
+  }
 
+  .navbar-end {
+    padding-right: 50px;
+  }
+
+  nav .logo {
+    // justify-content: center;
+    margin-left: 20px;
+    float: left;
+   }
 }
 
 //スマホ
 @media screen and (max-width: 768px) {
+  .navbar-brand {
+    justify-content: center;
+  }
+
   .none {
     display: none;
   }
 
-  nav .logo {
+   .navbar-end {
+    padding-right: 30px;
+    justify-content: right;
    }
 
-   .navbar-end {
-    padding: 0;
-    margin-left: 70px;
+   nav .logo {
+    float: left;
+    margin-left: 20px;
    }
 }
 

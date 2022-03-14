@@ -5,3 +5,15 @@
 .search-field {
   display: flex;
 }
+
+@media screen and (min-width: 769px) {
+  .search-field {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .search-field {
+    justify-content: center;
+  }
+}

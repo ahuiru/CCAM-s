@@ -9,11 +9,11 @@
             <%= image_tag 'default.jpeg', class: "image is-64x64 is-rounded" %>
           <% end %>
         </div>
-        <div class="column is-3-desktop is-4-tablet is-4-mobile">
+        <div class="column is-3-desktop is-3-tablet is-4-mobile">
           <%= e.user.name %><br>
         </div>
-        <div class="column is-3-desktop is-4-tablet is-4-mobile is-centered">
-          <%= Message.find_by(id: e.room.message_ids.last)&.content %>
+        <div class="column is-3-desktop is-5-tablet is-4-mobile is-centered last-content">
+          <%= Message.find_by(id: e.room.message_ids.last)&.content.truncate(18) %>
         </div>
       </div>
       <hr>
