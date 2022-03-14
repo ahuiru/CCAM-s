@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>We're sorry, but something went wrong (500)</title>
+  <title>500 Internal Server Error</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
   .rails-default-error-page {
@@ -31,7 +31,7 @@
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
 
-  .rails-default-error-page h1 {
+  .rails-default-error-page h2 {
     font-size: 100%;
     color: #730E15;
     line-height: 1.5em;
@@ -58,9 +58,11 @@
   <!-- This file lives in public/500.html -->
   <div class="dialog">
     <div>
-      <h1>We're sorry, but something went wrong.</h1>
+      <h1>Server Error</h1>
+      <h2>リクエストが実行できません(500)</h2>
+      <p>ご指定のURLを再度ご確認ください</p>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
+    <p>トップページへは<a href="/">こちら</a>より戻れます</p>
   </div>
 </body>
 </html>
