@@ -146,6 +146,29 @@ hr {
     float: left;
     margin-left: 20px;
    }
+
+   .edit-page .input-text-name {
+     text-align: left!important;
+     padding: 15px 0 0 0;
+   }
+
+   .edit-page .actions {
+     margin-top: 20px;
+   }
+
+   .edit-page .acount-delete {
+     text-align: left!important;
+     margin-top: 10px;
+   }
+
+   .edit-page .delete-button {
+     margin-top: 20px;
+   }
+
+   .edit-page .edit-image {
+     width: 100%;
+   }
+
 }
 
 //userのeditページ
@@ -153,6 +176,16 @@ hr {
   padding: 30px 100px;
   border: 1px solid #DBDBDB;
 }
+
+.edit-page .actions {
+  padding: 0;
+}
+
+.edit-page .update {
+  float: left;
+}
+
+
 
 .columns:not(:last-child) {
   margin-bottom: 0;
@@ -177,9 +210,4 @@ hr {
 
 .like-button {
   float: left;
-}
-
-
-.input-text-name {
-  // display: flex;
 }

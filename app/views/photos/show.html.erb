@@ -26,7 +26,7 @@
         </div>
         <div class="photo-deltete-button has-text-right">
           <% if @photo.user == current_user %>
-            <%= link_to [@photo], method: :delete do %>
+            <%= link_to photo_path(@photo), data: { confirm: "本当に削除しますか？削除するとデータは戻りません。" }, method: :delete do %>
               <i class="fa fa-trash" aria-hidden="true"></i>
             <% end %>
             <%= link_to edit_photo_path(@photo) do %>

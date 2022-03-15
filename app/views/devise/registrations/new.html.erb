@@ -1,32 +1,32 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field columns p-5">
-    <%= f.label :image, 'プロフィール写真', class:"input-text-name column has-text-centered has-text-weight-bold" %><br/>
+  <div class="field columns is-mobile is-tablet p-5">
+    <%= f.label :image, 'プロフィール写真', class:"input-text-name column is-3-desktop is-4-tablet has-text-centered has-text-weight-bold" %><br/>
     <%= f.file_field :image, class: 'column is-9' %>
   </div>
 
-  <div class="field columns p-2">
-    <%= f.label :email, 'メールアドレス', class:"input-text-name column has-text-centered has-text-weight-bold" %><br />
-    <%= f.email_field :email, autocomplete: "email", class: 'input column is-9' %>
+  <div class="field columns is-mobile is-tablet is-desktop p-2">
+    <%= f.label :email, 'メールアドレス', class:"input-text-name column is-3-desktop is-4-tablet is-3-mobile has-text-centered has-text-weight-bold" %><br />
+    <%= f.email_field :email, autocomplete: "email", class: 'input column is-9-desktop is-8-tablet is-8-mobile' %>
   </div>
 
-  <div class="field columns p-2">
-    <%= f.label :name, 'ユーザーネーム', class:"input-text-name column has-text-centered has-text-weight-bold" %><br />
-    <%= f.text_field :name, autocomplete: "name", class: 'input column is-9' %>
+  <div class="field columns is-mobile is-tablet is-desktop p-2">
+    <%= f.label :name, 'ユーザーネーム', class:"input-text-name column is-3-desktop is-4-tablet is-3-mobile has-text-centered has-text-weight-bold" %><br />
+    <%= f.text_field :name, autocomplete: "name", class: 'input column is-9-desktop is-8-tablet is-8-mobile' %>
   </div>
 
-  <div class="field columns p-2">
-    <%= f.label :password, class:"input-text-name column has-text-centered has-text-weight-bold" %><br />
-    <%= f.password_field :password, autocomplete: "new-password", class: 'input column is-9' %>
+  <div class="field columns is-mobile is-tablet is-desktop p-2">
+    <%= f.label :password, class:"input-text-name column is-3-desktop is-4-tablet is-3-mobile has-text-centered has-text-weight-bold" %><br />
+    <%= f.password_field :password, autocomplete: "new-password", class: 'input column is-9-desktop is-8-tablet is-8-mobile' %>
   </div>
 
-  <div class="field columns p-2">
-    <%= f.label :password_confirmation, class:"input-text-name column has-text-centered has-text-weight-bold" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'input column is-9' %>
+  <div class="field columns is-mobile is-tablet is-desktop p-2">
+    <%= f.label :password_confirmation, class:"input-text-name column is-3-desktop is-4-tablet is-3-mobile has-text-centered has-text-weight-bold" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'input column is-9-desktop is-8-tablet is-8-mobile' %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up",class:"button is-info" %>
+    <%= f.submit "新規作成",class:"button is-info" %>
   </div>
 <% end %>

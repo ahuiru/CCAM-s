@@ -4,39 +4,39 @@
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
-    <div class="field columns p-5">
-      <%= f.label :image, 'プロフィール写真', class:"input-text-name column has-text-centered has-text-weight-bold" %><br/>
-      <%= f.file_field :image, class: 'column is-9' %>
+    <div class="field columns is-tablet is-desktop p-5">
+      <%= f.label :image, 'プロフィール写真', class:"input-text-name column is-3-desktop is-4-tablet has-text-centered has-text-weight-bold" %><br/>
+      <%= f.file_field :image, class: 'column is-9-desktop is-8-tablet edit-image' %>
     </div>
 
     <div class="field columns p-2">
-      <%= f.label :email, 'メールアドレス', class:"input-text-name column has-text-centered has-text-weight-bold" %><br />
-      <%= f.email_field :email, class: 'input column is-9' %>
+      <%= f.label :email, 'メールアドレス', class:"input-text-name column is-3-desktop is-4-tablet is-12-mobile has-text-centered has-text-weight-bold" %><br />
+      <%= f.email_field :email, class: 'input column is-9-desktop is-8-tablet is-12-mobile' %>
     </div>
 
     <div class="field columns p-2">
-      <%= f.label :name, 'ユーザーネーム', class:"input-text-name column has-text-centered has-text-weight-bold" %><br />
-      <%= f.text_field :name, class: 'input column is-9' %>
+      <%= f.label :name, 'ユーザーネーム', class:"input-text-name column is-3-desktop is-4-tablet is-12-mobile has-text-centered has-text-weight-bold" %><br />
+      <%= f.text_field :name, class: 'input column is-9-desktop is-8-tablet is-12-mobile' %>
     </div>
 
     <div class="field columns p-2">
-      <%= f.label :profile, '自己紹介', class:"input-text-name column has-text-centered has-text-weight-bold" %><br />
-      <%= f.text_area :profile, class: 'input column is-9' %>
+      <%= f.label :profile, '自己紹介', class:"input-text-name column is-3-desktop is-4-tablet is-12-mobile has-text-centered has-text-weight-bold" %><br />
+      <%= f.text_area :profile, class: 'input column is-9-desktop is-8-tablet is-12-mobile' %>
     </div>
 
     <div class="field columns p-2">
-      <%= f.label :comic, 'お気に入り漫画', class:"input-text-name column has-text-centered has-text-weight-bold" %><br />
-      <%= f.text_field :comic, class: 'input column is-9' %>
+      <%= f.label :comic, 'お気に入り漫画', class:"input-text-name column is-3-desktop is-4-tablet is-12-mobile has-text-centered has-text-weight-bold" %><br />
+      <%= f.text_field :comic, class: 'input column is-9-desktop is-8-tablet is-12-mobile' %>
     </div>
 
     <div class="actions">
-      <%= f.submit "更新する", class:"button is-info" %>
+      <%= f.submit "更新する", class:"button is-info update" %>
     </div>
   <% end %>
 
 
-  <div class="has-text-right">
-    <%= button_to "アカウントの削除", registration_path(resource_name), data: { confirm: "本当に削除しますか？削除するとデータは戻りません。" }, class:"button is-info mt-3", method: :delete %>
+  <div class="has-text-right acount-delete">
+    <%= button_to "アカウントの削除", registration_path(resource_name), data: { confirm: "本当に削除しますか？削除するとデータは戻りません。" }, class:"button is-info delete-button", method: :delete %>
   </div>
 
 </div>
