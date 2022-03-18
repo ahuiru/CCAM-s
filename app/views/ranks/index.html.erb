@@ -1,8 +1,8 @@
-
 <p class="is-size-3 rank logo">ランキング</p>
 <div class="columns is-centered mt-3">
   <div class="column is-7 has-background-white-ter is-paddingless p-6">
-    <% @photo.each.with_index(1) do |photo| %>
+    <% @photo.each.with_index(1) do |photo, i| %>
+      <p class="rank-number has-text-weight-bold">第<span><%= i %></span>位</p>
       <div class="card mb-5">
         <div class="card-image">
           <div class="photo-icon">
@@ -28,8 +28,12 @@
           </figure>
         </div>
         <div class="card-content">
-          <div class="card-like">
-            <p  class="is-size-4 has-text-right like"><i class="far fa-heart has-text-danger mr-1"></i><%= photo.likes.count %></p>
+          <div class="like-button mr-4" id="like-button-<%= photo.id %>">
+            <% if current_user.likes.exists?(photo_id: photo.id) %>
+              <%= render 'likes/unlike_button', photo: photo %>
+            <% else %>
+              <%= render 'likes/like_button', photo: photo %>
+            <% end %>
           </div>
           <div class="card-content-text">
             <div>
@@ -64,7 +68,7 @@
           <% end %>
         </td>
         <td class="column is-12 user-profile-name">
-          <%= link_to current_user.name, [current_user], class: 'is-size-5 has-text-grey-dark' %>
+          <%= link_to current_user.name, [current_user], class: 'is-size-5 has-text-grey-dark has-text-weight-bold' %>
         </td>
       </tr>
     </table>

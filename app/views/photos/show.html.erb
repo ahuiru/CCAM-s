@@ -7,7 +7,9 @@
           <%= image_tag @photo.image %>
         </figure>
       </div>
+
       <div class="card-content pt-4">
+
         <div class="like-button mr-4" id="like-button-<%= @photo.id %>">
           <% if current_user.likes.exists?(photo_id: @photo.id) %>
             <%= render 'likes/unlike_button', photo: @photo %>
@@ -15,6 +17,7 @@
             <%= render 'likes/like_button', photo: @photo %>
           <% end %>
         </div>
+
         <div>
           <%= link_to @photo.user.name, [@photo.user], class:'has-text-black has-text-weight-bold' %>
         </div>

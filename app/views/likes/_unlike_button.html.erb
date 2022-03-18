@@ -1,3 +1,10 @@
-<%= link_to [@photo, :like], :style=>"color:deeppink;", method: :delete, remote: true do %>
-  <i class="fa fa-heart" aria-hidden="true"></i>
+<% if current_page?(photo_path(photo)) %>
+  <%= link_to photo_like_path(@photo), :style=>"color:deeppink;", method: :delete, remote: true do %>
+    <i class="fa fa-heart" aria-hidden="true"></i>
+  <% end %>
+<% else %>
+  <%= link_to photo_like_path(photo), :style=>"color:deeppink;", method: :delete, remote: true do %>
+    <i class="fa fa-heart" aria-hidden="true"></i>
+  <% end %>
 <% end %>
+<span><%= photo.likes.count %></span>

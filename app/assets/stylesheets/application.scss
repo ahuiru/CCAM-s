@@ -19,22 +19,23 @@
 
 html,
 body {
-   background-image: image-url('background.jpg');
-   /* 画像を常に天地左右の中央に配置 */
-   background-position: center center;
+  //  background-image: image-url('background.jpg');
+  //  /* 画像を常に天地左右の中央に配置 */
+  //  background-position: center center;
 
-   /* 画像をタイル状に繰り返し表示しない */
-   background-repeat: no-repeat;
+  //  /* 画像をタイル状に繰り返し表示しない */
+  //  background-repeat: no-repeat;
 
-   /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
-   background-attachment: fixed;
+  //  /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+  //  background-attachment: fixed;
 
-   /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
-   background-size: cover;
+  //  /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
+  //  background-size: cover;
 
-   /* 背景画像が読み込まれる前に表示される背景のカラー */
-  //  background-color: white;
-   height: 100%;
+  //  /* 背景画像が読み込まれる前に表示される背景のカラー */
+  // //  background-color: white;
+  //  height: 100%;
+  background-color: #18124f;
 }
 
 .container {
@@ -44,8 +45,9 @@ body {
 
 .logo {
   font-family:"ヒラギノ丸ゴ Pro W4","ヒラギノ丸ゴ Pro","Hiragino Maru Gothic Pro","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","HG丸ｺﾞｼｯｸM-PRO","HGMaruGothicMPRO";
+  text-align: center;
+  margin-top: 20px;
 }
-
 
 body > div.container {
   height: auto; /* 要素を超えた分の背景が伸びないブラウザ用 */
@@ -76,13 +78,13 @@ hr {
 }
 
 
- nav .logo {
+ nav .Logo {
   font-family: 'Homemade Apple', cursive;
   margin-left: 150px;
 
  }
 
- nav .logo .navbar-item {
+ nav .Logo .navbar-item {
   line-height: 36px;
  }
 
@@ -120,7 +122,7 @@ hr {
     padding-right: 50px;
   }
 
-  nav .logo {
+  nav .Logo {
     // justify-content: center;
     margin-left: 20px;
     float: left;
@@ -142,7 +144,7 @@ hr {
     justify-content: right;
    }
 
-   nav .logo {
+   nav .Logo {
     float: left;
     margin-left: 20px;
    }

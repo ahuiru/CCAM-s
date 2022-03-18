@@ -1,4 +1,4 @@
-
+<p class="is-size-3 logo">ホーム</p>
 <div class="columns is-centered home mt-3">
   <div class="column is-7 is-paddingless p-6">
     <% @feeds.each do |photo| %>
@@ -27,9 +27,16 @@
           </figure>
         </div>
         <div class="card-content">
-          <div class="card-like">
-            <p  class="is-size-4 has-text-right like"><i class="far fa-heart has-text-danger mr-1"></i><%= photo.likes.count %></p>
+
+
+          <div class="like-button mr-4" id="like-button-<%= photo.id %>">
+            <% if current_user.likes.exists?(photo_id: photo.id) %>
+              <%= render 'likes/unlike_button', photo: photo %>
+            <% else %>
+              <%= render 'likes/like_button', photo: photo %>
+            <% end %>
           </div>
+
           <div class="card-content-text">
             <div>
               <p><%= photo.caption.truncate(40) %></p>

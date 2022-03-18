@@ -1,4 +1,4 @@
-
+<p class="is-size-3 logo">検索</p>
 <div class="columns is-vcentered is-centered search pt-5 is-mobile is-tablet is-desktop">
   <div class="column is-4-desktop mr-5">
     <%= form_with url: search_path, method: :get, local: true do |f| %>
@@ -40,8 +40,12 @@
           </figure>
         </div>
         <div class="card-content">
-          <div class="card-like">
-            <p  class="is-size-4 has-text-right like"><i class="far fa-heart has-text-danger mr-1"></i><%= photo.likes.count %></p>
+          <div class="like-button mr-4" id="like-button-<%= photo.id %>">
+            <% if current_user.likes.exists?(photo_id: photo.id) %>
+              <%= render 'likes/unlike_button', photo: photo %>
+            <% else %>
+              <%= render 'likes/like_button', photo: photo %>
+            <% end %>
           </div>
           <div class="card-content-text">
             <div>
@@ -49,11 +53,6 @@
             </div>
             <div>
               <p class="mt-2 mb-1 ml-1">漫画:<%= photo.comic %></p>
-            </div>
-            <div>
-              <%= link_to photo_path(photo) do %>
-                <p class="is-size-7 has-text-grey">コメント<%= photo.comments.count %>件</p>
-              <% end %>
             </div>
           </div>
         </div>
