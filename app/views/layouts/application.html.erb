@@ -17,24 +17,21 @@
   <body>
     <nav class="navbar is-fixed-top is-mobile is-tablet is-desktop pt-2 pb-2">
       <div class="Logo">
-        <%= link_to "CCAM-s", [:root], class: 'navbar-item is-5-tablet is-5-mobile' %>
+        <%= link_to "CCAM-s", [:root], class: 'navbar-item is-5-tablet is-5-mobile has-text-weight-bold' %>
       </div>
       <div class="navbar-brand navbar-end is-7-tablet is-7-mobile">
         <% if logged_in? %>
           <%= link_to search_path, class: "btn navbar-item", method: :get do %>
-            <i class="fa fa-search" aria-hidden="true"></i>
+            <i class="fa fa-search fa-lg" aria-hidden="true"></i>
           <% end %>
           <%= link_to new_photo_path, class: "btn navbar-item", method: :get do %>
-            <i class="fa fa-plus-square" aria-hidden="true"></i>
+            <i class="fa fa-plus-square fa-lg" aria-hidden="true"></i>
           <% end %>
           <%= link_to rooms_path, class: "btn navbar-item", method: :get do %>
-            <i class="fa fa-commenting" aria-hidden="true"></i>
-          <% end %>
-          <%= link_to destroy_user_session_path, class: "btn navbar-item", method: :delete do %>
-            <i class="fa fa-sign-out" aria-hidden="true"></i>
+            <i class="fa fa-commenting fa-lg" aria-hidden="true"></i>
           <% end %>
           <%= link_to ranks_path, class:'btn navbar-item' do %>
-            <i class="fas fa-crown"></i>
+            <i class="fas fa-crown fa-lg"></i>
           <% end %>
           <div class="image">
             <% if current_user.image.attached? %>

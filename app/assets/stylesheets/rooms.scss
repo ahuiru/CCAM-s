@@ -13,6 +13,9 @@
   padding: 10px 0;
 }
 
+.dm-list .image .image {
+  object-fit: cover;
+}
 
 @media screen and (min-width: 769px) and ( max-width:1024px) {
   .dm-content .chat-image {
@@ -37,6 +40,7 @@
 
 .chat-image {
   margin: 0;
+  object-fit: cover;
 }
 
 

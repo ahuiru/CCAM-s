@@ -54,26 +54,37 @@ body {
 }
 
 .user-page table {
-  margin: 50px auto 20px auto;
+  margin: 40px 0px 20px 0px;
 }
 
-.user-page .images {
-  margin-right: 50px;
+.user-page .user_icon_image {
+  margin-left: 50px;
+  // width: 100%;
+  // text-align: center;
+  // width: 100%;
 }
 
 .user-page .image .image {
-  height: 150px;
-  width: 150px;
+  height: 160px;
+  width: 160px;
+  object-fit: cover;
+  // margin: 0 auto;
+}
+
+.user-page .profile-word {
+  // width: 75%;
+
 }
 
 .user-page .features {
-  padding-right: 100px;
+  padding-left: 50px;
+  // justify-content: center;
 }
 
 @media screen and (max-width: 768px) {
   .user-page .image .image {
-    height: 70px;
-    width: 70px;
+    height: 80px;
+    width: 80px;
   }
 
   .user-page .images {
@@ -81,7 +92,26 @@ body {
   }
 
   .user-page .features {
-    padding-right: 0;
+    padding-right: 50px;
+    padding-left: 10px;
+
+  }
+
+  .user-page .user_icon_image {
+    float: left;
+    margin-left: 100px;
+  }
+
+  .column.is-2-mobile {
+    width: auto;
+  }
+
+  .user-page .profile-word {
+    width: 80%;
+  }
+
+  .user-page .favarite-comic {
+    width: 80%;
   }
 
   .features .title {

@@ -1,8 +1,8 @@
 <div class="columns is-centered is-mobile is-tablet is-desktop user-page">
   <div class="column is-9-desktop is-10-tablet is-12-mobile">
     <table>
-      <tr>
-        <td class="image images">
+      <tr class="columns is-centered is-mobile is-tablet is-desktop">
+        <td class="image user_icon_image column is-5-desktop is-5-tablet is-2-mobile">
           <% if @user.image.attached? %>
             <%= image_tag @user.image, class: 'image is-rounded' %>
           <% else %>
@@ -11,7 +11,7 @@
         </td>
 
 
-        <td class="pt-1 features">
+        <td class="pt-1 features column is-8-desktop is-8-tablet is-10-mobile">
           <div class="title is-3"><%= @user.name %></div>
           <div class="feature-box pb-4">
             <div class="feature">
@@ -31,8 +31,8 @@
 
             </div>
           </div>
-          <p class="mb-3"><%= @user.profile %></p>
-          <p class="mb-3 has-text-weight-bold">お気に入り漫画：<%= @user.comic %></p>
+          <p class="mb-3 profile-word"><%= @user.profile %></p>
+          <p class="mb-3 has-text-weight-bold favarite-comic">お気に入り漫画：<%= @user.comic %></p>
         </td>
       </tr>
     </table>
