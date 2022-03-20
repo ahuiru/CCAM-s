@@ -21,6 +21,7 @@ class User < ApplicationRecord
   has_one_attached :image
 
   validates :profile, length: { maximum: 200 }
+  validates :name, length: { maximum: 50 }
   #userのshowページの編集の際、パスワードなしでも編集できるようにするために
   attr_accessor :current_password
 
@@ -49,6 +50,6 @@ class User < ApplicationRecord
     end
   end
 
-  
+
 
 end

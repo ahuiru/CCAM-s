@@ -32,14 +32,13 @@
     <div class="actions">
       <%= f.submit "更新する", class:"button is-info update" %>
     </div>
+
   <% end %>
+  <div class="delete-button columns is-vcentered is-mobile is-tablet is-desktop">
+    <%= button_to "ログアウト", destroy_user_session_path, class:"column logout button is-link is-12-mobile is-12-tablet is-12-desktop", method: :delete %>
 
-
-  <div class="has-text-right acount-delete">
-    <%= button_to "アカウントの削除", registration_path(resource_name), data: { confirm: "本当に削除しますか？削除するとデータは戻りません。" }, class:"button is-link delete-button", method: :delete %>
+    <%= button_to "アカウントの削除", registration_path(resource_name), data: { confirm: "本当に削除しますか？削除するとデータは戻りません。" }, class:"column button is-link account-delete is-12-mobile is-12-tablet is-12-desktop", method: :delete %>
   </div>
-  <%= link_to destroy_user_session_path, method: :delete do %>
-    <%= button_to "ログアウト", destroy_user_session_path, class:"button is-link delete-button", method: :delete %>
-  <% end %>
+
 
 </div>

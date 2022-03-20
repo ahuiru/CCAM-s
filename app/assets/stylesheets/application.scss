@@ -81,11 +81,24 @@ hr {
   background-color: #6bb8ff;
 }
 
- nav .Logo {
+.navbar-item {
+  padding: 8px 18px;
+}
+
+nav .Logo {
   font-family: 'Homemade Apple', cursive;
   margin-left: 200px;
 
- }
+}
+
+.field_with_errors {
+  display: contents;
+  // @extend .has-error;
+}
+
+#error_explanation {
+  background-color: pink	;
+}
 
 nav .Logo .navbar-item:hover{
   // color: blue;
@@ -154,6 +167,10 @@ nav .Logo .navbar-item:hover{
     font-size: 16px;
    }
 
+   .navbar-item {
+    padding: 8px 12px;
+  }
+
   .none {
     display: none;
   }
@@ -184,13 +201,19 @@ nav .Logo .navbar-item:hover{
 
    .edit-page .update {
      margin:0 20px 20px 0;
+     width: 90%;
    }
 
    .edit-page .edit-image {
      width: 100%;
    }
 
+   .edit-page .delete-button {
+    justify-content: center!important;
+  }
+
 }
+
 
 //userのeditページ
 .edit-page {
@@ -200,10 +223,32 @@ nav .Logo .navbar-item:hover{
 
 .edit-page .actions {
   padding: 0;
+  margin: 20px 0 0 30px;
 }
 
 .edit-page .update {
-  float: left;
+  // float: left;
+  // max-width: 40%;
+  // margin-right: 100px;
+}
+
+.edit-page .logout {
+  // float: left;
+  // justify-content: right;
+  margin-right: 30px;
+  // width: 20%;
+}
+
+.edit-page .delete-button {
+  justify-content: right;
+}
+
+.edit-page .account-delete {
+  margin-left: 20px;
+}
+
+.edit-page .delete-button .column{
+  padding: 8px 16px 6px 16px;
 }
 
 
