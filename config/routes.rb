@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'notifications/index'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root "home#index"
   devise_for :users, controllers: {
@@ -26,4 +27,5 @@ Rails.application.routes.draw do
   resources :messages, :only => [:create]
   resources :rooms, :only => [:create, :show, :index]
   get '/ranks' => 'ranks#index'
+  resources :notifications, only: :index
 end

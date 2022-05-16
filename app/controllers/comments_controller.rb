@@ -1,13 +1,12 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
 
-
-
   def create
     @photo = Photo.find(params[:photo_id])
     @comment = current_user.comments.new(comment_params)
 
     if @comment.save
+      @photo.create_notification_comment!(current_user, @comment.id)
       redirect_to [@photo]
     else
       flash.now[:alert] = '送信に失敗しました'
@@ -16,7 +15,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    puts "detroyyyyyyyyyyyy"
+    puts "detroy"
     comment = current_user.comments.find(params[:id])
     comment.destroy
 

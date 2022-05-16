@@ -16,6 +16,7 @@
           <% else %>
             <%= render 'likes/like_button', photo: @photo %>
           <% end %>
+
         </div>
 
         <div>
@@ -35,6 +36,7 @@
             <%= link_to edit_photo_path(@photo) do %>
               <i class="fas fa-edit"></i>
             <% end %>
+            <%= link_to 'いいねした人', photo_like_path(photo) %>
           <% end %>
         </div>
       </div>

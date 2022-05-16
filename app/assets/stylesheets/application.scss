@@ -136,6 +136,18 @@ nav .Logo .navbar-item:hover{
   background-color: #f5f5f5;
 }
 
+.nav-circle {
+  position: absolute;
+  margin: 0;
+  padding-left: 12px;
+  padding-bottom: 12px;
+  color: #FFC700;
+}
+
+.fa-stack {
+  width: 20px;
+}
+
 //タブレット
 @media screen and (min-width: 769px) and ( max-width:1024px) {
   .navbar-brand {
@@ -161,6 +173,12 @@ nav .Logo .navbar-item:hover{
 
   .navbar-brand .fa-lg{
     font-size: 1rem!important;
+  }
+
+  .nav-circle {
+    font-size: 13px;
+    padding-left: 9px;
+    padding-bottom: 9px;
   }
 
   nav .Logo .navbar-item {

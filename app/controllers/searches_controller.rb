@@ -13,6 +13,7 @@ class SearchesController < ApplicationController
   def search
     if params[:keyword].present?
       @photos = Photo.search_photo(params[:keyword])
+      #あいまい検索,LIKE句
     else
       @photos = Photo.none
     end

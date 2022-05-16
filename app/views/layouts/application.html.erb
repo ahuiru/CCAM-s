@@ -30,6 +30,20 @@
           <%= link_to rooms_path, class: "btn navbar-item", method: :get do %>
             <i class="fa fa-commenting fa-lg" aria-hidden="true"></i>
           <% end %>
+
+          <%= link_to notifications_index_path, class: "btn navbar-item", method: :get do %>
+            <% if unchecked_notifications.any? %>
+              <span class="fa-stack">
+                <i class="fa fa-bell fa-lg fa-stack-1x" aria-hidden="true"></i>
+                <i class="fa fa-circle nav-circle fa-stack-1x" aria-hidden="true"></i>
+              </span>
+            <% else %>
+              <span class="fa-stack">
+                <i class="fa fa-bell fa-lg" aria-hidden="true"></i>
+              </span>
+            <% end %>
+          <% end %>
+
           <%= link_to ranks_path, class:'btn navbar-item' do %>
             <i class="fas fa-crown fa-lg"></i>
           <% end %>

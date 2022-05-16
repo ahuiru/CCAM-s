@@ -6,9 +6,14 @@ class LikesController < ApplicationController
     @photos = Photo.find(likes)
   end
 
+  def show
+    @photo = Photo.find(likes)
+  end
+
   def create
     @photo = Photo.find(params[:photo_id])
     current_user.likes.create(photo_id: params[:photo_id])
+    @photo.create_notification_like!(current_user)
   end
 
   def destroy
