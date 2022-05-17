@@ -1,20 +1,32 @@
 <% visitor = notification.visitor %>
 <% visited = notification.visited %>
-<div>
-    <%= link_to user_path(visitor) do %>
-        <%= visitor.name %>さんが
-    <% end %>
-    <% if notification.action=='dm' %>
-        <p>あなたにDMを送りました</p>
-    <% elsif notification.action=='follow'  %>
-        <p>あなたをフォローしました</p>
-    <% elsif notification.action=='like'  %>
-        <%= link_to 'あなたの投稿', notification.photo, style: "font-weight-bold" %>
-        <p>にいいねしました"</p>
-    <% else notification.action=='comment'  %>
-        <% if notification.photo.user_id == visited.id  %>
-          <%= link_to "あなたの投稿", notification.photo, style: "font-weight-bold" %>
-          <p>にコメントしました</p>
-        <% end %>
-    <% end %>
+<div class="notifications-list">
+    <div class="columns is-vcentered chat-partner is-mobile is-tablet is-desktop">
+        <div class="is-centered column is-4-desktop is-3-tablet is-2-mobile image is-inline-block">
+            <%= link_to user_path(visitor) do %>
+                <% if visitor.image.attached? %>
+                    <%= image_tag visitor.image, class: 'image is-64x64 is-rounded' %>
+                <% else %>
+                    <%= image_tag 'default.jpeg', class: "image is-64x64 is-rounded" %>
+                <% end %>
+            <% end %>
+        </div>
+        <div class="column is-8-desktop is-9-tablet is-10-mobile image is-inline-block pr-5 mr-5">
+            <%= link_to visitor.name, user_path(visitor) %>さんが
+            <% if notification.action=='dm' %>
+                <span>あなたにDMを送りました</span>
+            <% elsif notification.action=='follow'  %>
+                <span>あなたをフォローしました</span>
+            <% elsif notification.action=='like'  %>
+                <%= link_to 'あなたの投稿', notification.photo, style: "font-weight-bold" %>
+                <span>にいいねしました</span>
+            <% else notification.action=='comment'  %>
+                <% if notification.photo.user_id == visited.id  %>
+                <%= link_to "あなたの投稿", notification.photo, style: "font-weight-bold" %>
+                <span>にコメントしました</span>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+    <hr>
 </div>

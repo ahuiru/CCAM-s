@@ -1,3 +1,18 @@
 // Place all the styles related to the notifications controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.notifications-list {
+  background-color: white !important;
+  border-bottom: 0;
+}
+
+.notifications-list .columns {
+  margin-top: 0;
+  padding: 10px 0;
+}
+
+.notifications-list .image .image {
+  object-fit: cover;
+  margin: 0 auto;
+}
