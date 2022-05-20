@@ -1,23 +1,20 @@
-<p class="is-size-3 logo mb-2">いいね</p>
-<div class="dm-list">
-  <% @anotherEntries.each do |e| %>
-    <%= link_to room_path(e.room.id) do %>
-      <div class="columns is-vcentered is-centered chat-partner is-mobile is-tablet is-desktop">
-        <div class="column is-3-desktop is-4-tablet is-4-mobile image is-inline-block">
-          <% if e.user.image.attached? %>
-            <%= image_tag e.user.image, class: 'image is-64x64 is-rounded' %>
+<p class="is-size-3 logo mb-2">いいねした人</p>
+<div class="photo-likes-list">
+  <% @likes.each do |like|%>
+    <div class="columns is-vcentered chat-partner is-mobile is-tablet is-desktop">
+      <div class="is-centered column is-4-desktop is-3-tablet is-2-mobile image is-inline-block">
+        <%= link_to user_path(like.user) do %>
+          <% if like.user.image.attached? %>
+            <%= image_tag like.user.image, class: 'image is-64x64 is-rounded' %>
           <% else %>
             <%= image_tag 'default.jpeg', class: "image is-64x64 is-rounded" %>
           <% end %>
-        </div>
-        <div class="column is-3-desktop is-3-tablet is-4-mobile">
-          <%= e.user.name %><br>
-        </div>
-        <div class="column is-3-desktop is-5-tablet is-4-mobile is-centered last-content">
-          <%= Message.find_by(id: e.room.message_ids.last)&.content.truncate(18) %>
-        </div>
+        <% end %>
       </div>
-      <hr>
-    <% end %>
+      <div class="photo-likes-text column is-8-desktop is-9-tablet is-10-mobile is-inline-block">
+        <%= link_to like.user.name, user_path(like.user) %>
+      </div>
+    </div>
+    <hr>
   <% end %>
 </div>

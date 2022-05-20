@@ -1,3 +1,38 @@
 // Place all the styles related to the likes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.photo-likes-list {
+  background-color: white !important;
+  border-bottom: 0;
+}
+
+.photo-likes-list .columns {
+  margin-top: 0;
+  padding: 10px 0;
+}
+
+.photo-likes-list .image .image {
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.photo-likes-list .photo-likes-text {
+  text-align: center;
+}
+
+
+@media screen and (max-width: 768px) {
+  .photo-likes-list span {
+  font-size: 13px;
+
+  }
+
+
+
+  .photo-likes-list .image .image {
+    height: 50px;
+    width: 50px;
+    margin-left: 8px;
+  }
+}

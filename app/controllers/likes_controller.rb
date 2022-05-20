@@ -7,7 +7,9 @@ class LikesController < ApplicationController
   end
 
   def show
-    @photo = Photo.find(likes)
+    @photo = Photo.find(params[:photo_id])
+    @likes = Like.where(photo_id: @photo.id)
+    # @user = User.find(id: @likes.user_id)
   end
 
   def create

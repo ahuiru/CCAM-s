@@ -16,3 +16,24 @@
   object-fit: cover;
   margin: 0 auto;
 }
+
+.notifications-list span {
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .notifications-list span {
+  font-size: 13px;
+
+  }
+
+  .notifications-list .notification-text {
+    text-align: center;
+  }
+
+  .notifications-list .image .image {
+    height: 50px;
+    width: 50px;
+    margin-left: 8px;
+  }
+}
