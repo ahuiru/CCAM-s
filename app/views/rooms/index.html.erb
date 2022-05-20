@@ -15,7 +15,11 @@
             <%= e.user.name %><br>
           </div>
           <div class="column is-3-desktop is-5-tablet is-4-mobile is-centered last-content">
-            <%= Message.find_by(id: e.room.message_ids.last)&.content.truncate(18) %>
+            <% if e.room.messages.exists? %>
+              <%= Message.find_by(id: e.room.message_ids.last)&.content.truncate(18) %>
+            <% else %>
+              <p>メッセージがないです</p>
+            <% end %>
           </div>
         <% else %>
           <p>dmがないです</p>
