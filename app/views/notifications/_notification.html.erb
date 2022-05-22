@@ -14,7 +14,9 @@
         <div class="notification-text column is-8-desktop is-9-tablet is-10-mobile image is-inline-block pr-5 mr-5">
             <span><%= link_to visitor.name, user_path(visitor) %>さんが</span>
             <% if notification.action=='dm' %>
-                <span>あなたにDMを送りました</span>
+                <span>あなたに</span>
+                <span><%= link_to 'DM', notification.room, style: "font-weight-bold" %></span>
+                <span>を送りました</span>
             <% elsif notification.action=='follow'  %>
                 <span>あなたをフォローしました</span>
             <% elsif notification.action=='like'  %>
@@ -22,8 +24,8 @@
                 <span>にいいねしました</span>
             <% else notification.action=='comment'  %>
                 <% if notification.photo.user_id == visited.id  %>
-                <span><%= link_to "あなたの投稿", notification.photo, style: "font-weight-bold" %></span>
-                <span>にコメントしました</span>
+                    <span><%= link_to "あなたの投稿", notification.photo, style: "font-weight-bold" %></span>
+                    <span>にコメントしました</span>
                 <% end %>
             <% end %>
         </div>
