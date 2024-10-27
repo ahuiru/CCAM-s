@@ -34,6 +34,7 @@ group :development, :test do
   gem 'sqlite3', '~> 1.4'
   gem 'rspec-rails', '~> 5.0.0'
   gem 'factory_bot', '< 6.4.0'
+  gem 'awesome_print'
 end
 
 group :development do
@@ -52,6 +53,7 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  gem 'faker'
 end
 
 group :production do
